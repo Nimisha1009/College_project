@@ -1,21 +1,23 @@
 <template>
     <q-page >
-      <q-form class=" bg-grey-2 q-pa-md" style="width:50%">                  
+      <q-card style="width:50%">
+      <q-form class=" q-pa-md" >                  
       
-              <div class=" bg-grey-5 text-h6 text-center">Customers Detail</div>
+              <div class=" bg-pink-1 text-h6 text-center">Customers Detail</div>
            
               <div class="row   q-pa-md justify-between">
-              <q-input label="first name"/>
+              <q-input label="First name"/>
               <q-input label="Last name"/>
               </div>
              <div class="q-pa-md">
-              <q-input label="mobile number"/></div>
+              <q-input label="Mobile number"/></div>
               <div class="q-pa-md">
-              <q-input label="email" />
+              <q-input label="Email" />
               </div>
              
                
                   </q-form>
+                </q-card>
                     </q-page>
                      </template>
   

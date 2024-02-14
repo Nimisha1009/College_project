@@ -1,9 +1,10 @@
 
 <template>
     <q-page >
+      <q-card style="width:40%" >
       <q-form class="q-pa-md">
-      <div style="width:40%" class="bg-grey-3">
-              <div class=" bg-grey-6 text-h6 text-center">Payment</div>
+      <div >
+              <div class=" bg-pink-1 text-h6 text-center">Payment</div>
            <div>
               <div class="q-pa-md ">
               <q-input label="customer-Id"/>
@@ -15,7 +16,7 @@
               <q-input label="Total-amount" />
               </div>
               <div class="q-pa-md">
-              <q-input label="paid" />
+              <q-input label="Paid" />
               </div>
               <div class="q-pa-md">
               <q-input label="Transaction-number" />
@@ -23,6 +24,7 @@
               </div>
                  </div>
                 </q-form>
+              </q-card>
                     </q-page>
                      </template>
 <script>

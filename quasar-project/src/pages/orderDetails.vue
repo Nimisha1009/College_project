@@ -1,8 +1,9 @@
 <template>
     <q-page >
-      <q-form class=" bg-grey-4 q-pa-md">
-      <div style="width:40%" class="bg-grey-3">
-              <div class=" bg-grey-6 text-h6 text-center">Order-Details</div>
+      <q-card style="width:40%">
+      <q-form class="q-pa-md">
+      <div >
+              <div class=" bg-pink-1 text-h6 text-center">Order-Details</div>
            <div>
               <div class="q-pa-md ">
               <q-input label="product-Id"/>
@@ -18,5 +19,6 @@
               </div>
                  </div>
                 </q-form>
+               </q-card>
                     </q-page>
                      </template>

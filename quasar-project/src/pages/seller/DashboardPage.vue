@@ -1,6 +1,10 @@
 <template>
     <q-page>
-        Seller Dashboard
+      gijgjhkjbkj
+       
+      
+     
+
     </q-page>
 </template>
 

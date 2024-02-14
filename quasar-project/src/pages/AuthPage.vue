@@ -7,26 +7,7 @@
 </div>
         <q-card class="q-pa-sm" :style="{width: $q.screen.gt.xs ? '380px' : '100%'}">
      <router-view />
-     <div class="">
-      <div class="row justify-center">
-        <a href="" class="float-right " style="text-decoration: none">Forgot Password</a>
-      </div>
-      
-      <div class="column items-center q-my-lg">
-        <div>
-          <q-btn flat class="text-h5text-center" color="pink-6" size="lg" to="./signup">Create Account</q-btn>
-        </div>
-        
-      
-        <span class="text-grey text-center">or sign up using</span>
-        <div class="">
-            <q-btn icon="fab fa-facebook-f" round color="primary"></q-btn>
-        </div>
-      </div>
-
-     </div>
-    
-    </q-card>
+     </q-card>
       </div>
       
     </q-page>

@@ -1,7 +1,8 @@
 <template>
     <q-page >
-      <q-form class=" bg-grey-3 q-pa-md" style="width:50%">
-      <div class=" bg-grey-5  text-h6 text-center q-pa-md">shopping Cart</div>
+      <q-card class="q-pa-md" style="width:50%">
+      <q-form >
+      <div class=" bg-pink-1  text-h6 text-center q-pa-md">shopping Cart</div>
          <div class="q-pa-md">
               <q-input label="Quantity"/>
                </div>
@@ -10,6 +11,7 @@
              <div class="q-pa-md">
               <q-input label="Customer Id"/></div>
                     </q-form>
+                  </q-card>
                     </q-page>
                      </template>
   

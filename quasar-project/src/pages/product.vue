@@ -1,8 +1,10 @@
 <template>
     <q-page >
-      <q-form class=" bg-grey-4 q-pa-md">
-      <div style="width:40%" class="bg-grey-3">
-              <div class=" bg-grey-6 text-h6 text-center">Product</div>
+      
+      <q-card style="width:40%">
+      <q-form class=" q-pa-md">
+      <div  >
+              <div class=" bg-pink-1 text-h6 text-center">Product</div>
            <div>
               <div class="q-pa-md ">
               <q-input label="product-Id"/>
@@ -16,7 +18,7 @@
               <q-input label="Seller-Id" />
               </div>
               <div class="q-pa-md">
-              <q-input label="product-Date" />
+              <q-input type="date"  label="Product-Date" />
               </div>
               <div class="q-pa-md" style="max-width: 500px">
           <q-input v-model="text" label="Description" filled autogrow/></div>
@@ -24,6 +26,7 @@
               </div>
               </div>
               </q-form>
+            </q-card>
                     </q-page>
                      </template>
                      <script>

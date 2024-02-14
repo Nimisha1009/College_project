@@ -42,6 +42,18 @@ const routes = [
             path: 'signup',
             component: ()=> import('components/modules/auth/signup.vue')
           },
+        
+        ]
+      },
+      {
+        path: 'auth',
+        component: () => import('pages/AccountPage.vue'),
+        children: [
+         
+          {
+            path: 'recovery',
+            component: ()=> import('components/modules/auth/forgotpassword.vue')
+          },
         ]
       },
         {
