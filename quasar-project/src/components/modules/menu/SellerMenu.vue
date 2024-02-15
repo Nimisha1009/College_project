@@ -4,11 +4,7 @@
             <q-item-section avatar><q-icon :name="item.icon"></q-icon></q-item-section>
             <q-item-section >{{ item.label }}</q-item-section>
         </q-item>
-        <select style="width:150px" id="slct1">
-            <option>Listing</option></select>
-            <br>
-           <select style="width:150px;" id="slct2"></select>
-    </q-list>
+      </q-list>
 </template>
 <script>
 export default {
@@ -25,7 +21,7 @@ export default {
                 {label: 'Help', icon:'person', url:'/account'}
             ]
         }
-    }
+            }
 
 }
 </script>

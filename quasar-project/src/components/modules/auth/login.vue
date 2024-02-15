@@ -13,14 +13,11 @@
                         <div class="">
                             <q-btn label="Login" style="width:100%" color="primary"></q-btn>
                         </div>
-                        
-                    </div>
-               
-           
-        </div>
+                         </div>
+                </div>
         <div class="">
       <div class="row justify-center">
-        <q-btn  to="./forgotpassword" flat style="color: black">Forgot Password</q-btn>
+        <q-btn  to="./recovery" flat style="color: black">Forgot Password</q-btn>
       </div>
       
       <div class="column items-center q-my-lg">
