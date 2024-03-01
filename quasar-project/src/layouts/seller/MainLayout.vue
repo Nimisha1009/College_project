@@ -1,32 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-amber">
+    <q-header elevated class="bg-pink-2">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <SellerMenu />
 
-        <div>Quasar v{{ $q.version }}</div>
+       
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-     <SellerMenu />
-    </q-drawer>
-
+    
     <q-page-container>
       <router-view />
     </q-page-container>

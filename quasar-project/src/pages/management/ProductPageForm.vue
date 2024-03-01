@@ -1,8 +1,9 @@
 <template>
-<q-form>
-    <div>Add Product</div>
-    <q-input />
-</q-form>
+<ProductForm />
 </template>
 <script>
+import ProductForm from 'components/modules/products/form.vue'
+export default {
+    components: {ProductForm}
+}
 </script>

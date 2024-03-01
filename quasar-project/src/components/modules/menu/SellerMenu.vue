@@ -1,25 +1,84 @@
 <template>
-    <q-list>
-        <q-item v-for="item of menu" :to="item.url">
-            <q-item-section avatar><q-icon :name="item.icon"></q-icon></q-item-section>
-            <q-item-section >{{ item.label }}</q-item-section>
+     <header>
+        <div class="row q-pa-md">
+            <div>
+         <q-toolbar class="bg-pink-4 text-white q-my-md shadow-2">
+         
+         <q-btn-dropdown stretch flat label="Listings">
+       <q-list>
+        <q-item v-for="item of listings" :to="item.url">
+          <q-item-section >{{ item.label }}</q-item-section>
         </q-item>
-      </q-list>
+        </q-list>
+       </q-btn-dropdown>
+        <q-btn-dropdown stretch flat label="Inventory">
+       <q-list>
+        <q-item v-for="item of Inventory" :to="item.url">
+          <q-item-section >{{ item.label }}</q-item-section>
+        </q-item>
+        </q-list>
+        </q-btn-dropdown>
+        <div class="q-pa-md">
+        <q-btn-dropdown stretch flat label="Orders">
+       <q-list>
+        <q-item v-for="item of Orders " :to="item.url">
+          <q-item-section >{{ item.label }}</q-item-section>
+        </q-item>
+        </q-list>
+        </q-btn-dropdown>
+        </div>
+        <div class="q-pa-md">
+        <q-btn-dropdown stretch flat label="Payments">
+       <q-list>
+        <q-item v-for="item of Payments" :to="item.url">
+          <q-item-section >{{ item.label }}</q-item-section>
+        </q-item>
+        </q-list>
+        </q-btn-dropdown>
+        </div>
+        <div class="q-pa-md">
+        <q-btn-dropdown stretch flat label="Reports">
+       <q-list>
+        <q-item v-for="item of Reports" :to="item.url">
+          <q-item-section >{{ item.label }}</q-item-section>
+        </q-item>
+        </q-list>
+        </q-btn-dropdown>
+        </div>
+        <div class="q-pa-md">
+        <q-btn-dropdown stretch flat label="More">
+       <q-list>
+        <q-item v-for="item of More" :to="item.url">
+          <q-item-section >{{ item.label }}</q-item-section>
+        </q-item>
+        </q-list>
+        </q-btn-dropdown>
+        </div>
+        <div class="q-pa-md">
+        <q-btn-dropdown stretch flat label="Help">
+       <q-list>
+        <q-item v-for="item of Help" :to="item.url">
+          <q-item-section >{{ item.label }}</q-item-section>
+        </q-item>
+        </q-list>
+        </q-btn-dropdown>
+        </div>
+       </q-toolbar>
+       </div>
+       <div class="q-pa-md">
+      
+        <q-input icon="fa fa-search" rounded outlined v-model="text" label="Search" />
+        
+    </div>
+         </div>
+   </header>
 </template>
 <script>
 export default {
     data(){
         return{
-            menu:[
-                {label: 'Home', icon:'person', url:'/account'},
-                {label: 'Listings', icon:'person', url:'/account'},
-                {label: 'Inventory', icon:'person', url:'/account'},
-                {label: 'Orders', icon:'person', url:'/account'},
-                {label: 'Payments', icon:'person', url:'/account'},
-                {label: 'Reports', icon:'person', url:'/account'},
-                {label: 'More', icon:'person', url:'/account'},
-                {label: 'Help', icon:'person', url:'/account'}
-            ]
+        
+            
         }
             }
 

@@ -72,6 +72,10 @@ const routes = [
       {
         path: 'products/add',
         component: () => import('pages/management/ProductPageForm.vue'),
+      },
+      {
+        path: 'sellerpageform',
+        component: () => import('pages/management/sellerpageform.vue'),
       }
     ]
   },
