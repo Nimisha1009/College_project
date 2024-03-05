@@ -5,13 +5,14 @@
             </div>
             <div class="column">
               <div class="full-width column q-gutter-sm">
-               <q-input v-model="email" label="Email" outlined></q-input>
-               <q-input v-model="password" label="password" outlined></q-input>
+               <q-input  label="Email" outlined v-model="auth.email"></q-input>
+               <q-input  label="password" outlined  v-model="auth.password"></q-input>
+               {{ auth }}
                 </div>
                   <div class="full-width q-my-md column q-gutter-sm">
                         <q-checkbox v-model="check" label="Remember Me"></q-checkbox>
                         <div class="">
-                            <q-btn label="Login" style="width:100%" color="primary"></q-btn>
+                            <q-btn label="LogIn" style="width:100%" color="primary"  @click="login"></q-btn>
                         </div>
                          </div>
                 </div>
@@ -37,6 +38,30 @@
 </template>
 <script>
 export default {
-
+  data () {
+    return {
+      auth: {},
+    }
+  },
+  methods: {
+    async login () {
+      let httpRequest = await this.$axios.post('http://localhost:8055/admin/settings/data-model/auth/login', this.auth)
+      console.log(httpRequest)
+      let access_token = httpRequest.data.data.access_token
+      this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
+      localStorage.setItem('access_token', access_token)
+     },
+    ForgotPassword () {
+      console.log("Forgot Password clicked");
+    },
+    signUp () {
+      console.log("Signup clicked");
+    },
+    loginWithFacebook () {
+      console.log("Login with Facebook clicked");
+    },
+     }
 }
+
+
 </script>
