@@ -45,11 +45,12 @@ export default {
   },
   methods: {
     async login () {
-      let httpRequest = await this.$axios.post('http://localhost:8055/admin/settings/data-model/auth/login', this.auth)
+      let httpRequest = await this.$axios.post('http://localhost:8055/auth/login', this.auth)
       console.log(httpRequest)
       let access_token = httpRequest.data.data.access_token
       this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
       localStorage.setItem('access_token', access_token)
+      
      },
     ForgotPassword () {
       console.log("Forgot Password clicked");
