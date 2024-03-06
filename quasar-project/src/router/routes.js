@@ -76,7 +76,11 @@ const routes = [
       {
         path: 'sellerpageform',
         component: () => import('pages/management/sellerpageform.vue'),
-      }
+      },
+      {
+        path: 'viewProductCategories/',
+        component: () => import('pages/management/viewProductCategories.vue'),
+      },
     ]
   },
   // Always leave this as last one,
