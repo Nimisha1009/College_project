@@ -1,12 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+   
     <q-header elevated class="bg-pink-4">
       <q-toolbar class="text-white">
 
         <div class="column">
           <SellerMenu />
-
-        </div>
+         </div>
 
         <div class="q-pa-md">
 
