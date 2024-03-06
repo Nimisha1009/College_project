@@ -81,6 +81,41 @@ const routes = [
         path: 'viewProductCategories/',
         component: () => import('pages/management/viewProductCategories.vue'),
       },
+      {
+        path: 'InsertProductCategory/',
+        component: () => import('pages/management/InsertProductCategory.vue'),
+      },
+      {
+        path: 'ViewCategories/',
+        component: () => import('pages/management/ViewCategories.vue'),
+      },
+      {
+        path: 'InsertCategory/',
+        component: () => import('pages/management/InsertCategory.vue'),
+      },
+      {
+        path: 'InsertBox/',
+        component: () => import('pages/management/InsertBox.vue'),
+      },
+      {
+        path: 'ViewCustomer/',
+        component: () => import('pages/management/ViewCustomer.vue'),
+      },
+      {
+        path: 'ViewOrder/',
+        component: () => import('pages/management/ViewOrder.vue'),
+      },
+      {
+        path: 'ViewPayment/',
+        component: () => import('pages/management/ViewPayment.vue'),
+      },
+      {
+        path: 'ViewUsers/',
+        component: () => import('pages/management/ViewUsers.vue'),
+      },
+
+      
+      
     ]
   },
   // Always leave this as last one,
