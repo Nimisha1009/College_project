@@ -2,11 +2,21 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/ecommerce/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') },
-     ]
+      { path: '', component: () => import('pages/ecommerce/Home.vue') },
+      {
+        path: 'ecommerce', component: () => import('pages/ecommerce/AuthPage.vue'),
+        children: [
+          { path: 'login', component: () => import('components/ecommerce_modules/auth/login.vue') },
+          { path: 'signup', component: () => import('components/ecommerce_modules/auth/signup.vue') },
+          { path: 'forgotpassword', component: () => import('components/ecommerce_modules/auth/forgotpassword.vue') },
+        ]
+      },
+
+    ]
   },
+
 
   {
     path: '/seller',
@@ -22,39 +32,39 @@ const routes = [
         children: [
           {
             path: 'login',
-            component: ()=> import('components/modules/auth/login.vue')
+            component: () => import('components/modules/auth/login.vue')
           },
           {
             path: 'signup',
-            component: ()=> import('components/modules/auth/signup.vue')
+            component: () => import('components/modules/auth/signup.vue')
           },
-        
+
         ]
       },
       {
         path: 'auth',
         component: () => import('pages/AccountPage.vue'),
         children: [
-         
+
           {
             path: 'recovery',
-            component: ()=> import('components/modules/auth/forgotpassword.vue')
+            component: () => import('components/modules/auth/forgotpassword.vue')
           },
         ]
       },
-        {
-          path: 'products/',
-          component: () => import('layouts/seller/MainLayout.vue'),
-        },
-        {
-          path: 'products/add',
-          component: () => import('layouts/seller/MainLayout.vue'),
-        },
-        {
-          path: 'products/request',
-          component: () => import('layouts/seller/MainLayout.vue'),
-        }
-      
+      {
+        path: 'products/',
+        component: () => import('layouts/seller/MainLayout.vue'),
+      },
+      {
+        path: 'products/add',
+        component: () => import('layouts/seller/MainLayout.vue'),
+      },
+      {
+        path: 'products/request',
+        component: () => import('layouts/seller/MainLayout.vue'),
+      }
+
     ]
   },
   {
@@ -114,8 +124,8 @@ const routes = [
         component: () => import('pages/management/ViewUsers.vue'),
       },
 
-      
-      
+
+
     ]
   },
   // Always leave this as last one,
