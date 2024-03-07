@@ -35,7 +35,7 @@ export default {
          },
          {
             label: 'Product', url: '', icon: '', subMenu:[
-                { label:'Insert Product', url:'/modules/products/form',icon:'',},
+                { label:'Insert Product', url:'',icon:'',},
                 {label:'view Product', url:'', icon:''}
             ]
         },
