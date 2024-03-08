@@ -32,11 +32,11 @@ const routes = [
         children: [
           {
             path: 'login',
-            component: () => import('components/modules/auth/login.vue')
+            component: () => import('components/modules/auth/SellerLogin.vue')
           },
           {
             path: 'signup',
-            component: () => import('components/modules/auth/signup.vue')
+            component: () => import('components/modules/auth/SellerSignup.vue')
           },
 
         ]

@@ -29,6 +29,6 @@
 </template>
 <script>
 export default{
-     name:signup,
+     name:'SellerSignup',
 }
 </script>
