@@ -5,7 +5,7 @@
 
           <h6>Image</h6>
 </div>
-        <q-card class="q-pa-sm" :style="{width: $q.screen.gt.xs ? '380px' : '100%'}">
+        <q-card class="q-pa-sm" :style="{width: $q.screen.gt.xs ? '420px' : '100%'}">
      <router-view />
      </q-card>
       </div>

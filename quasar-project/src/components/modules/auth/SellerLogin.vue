@@ -1,7 +1,7 @@
 <template>
     <q-form>
         <div class="row q-pa-md">
-            <div class="text-h5 text-center q-my-lg">Login to continue</div>
+            <div class="text-h5 text-center q-my-lg">Welcome to Supplier Panel<span class="text-h6 text-grey text-center">Please login to Your Account</span></div>
             </div>
             <div class="column">
               <div class="full-width column q-gutter-sm">
@@ -10,8 +10,7 @@
                {{ auth }}
                 </div>
                   <div class="full-width q-my-md column q-gutter-sm">
-                        <q-checkbox v-model="check" label="Remember Me"></q-checkbox>
-                        <div class="">
+                      <div class="">
                             <q-btn label="LogIn" style="width:100%" color="primary"  @click="login"></q-btn>
                         </div>
                          </div>
@@ -23,14 +22,11 @@
       
       <div class="column items-center q-my-lg">
         <div>
-          <q-btn flat class="text-h5text-center" color="pink-6" size="lg" to="/seller/auth/signup">Create Account</q-btn>
+          <q-btn flat class="text-h5text-center" color="pink-6" size="lg" to="/seller/auth/signup">Registration</q-btn>
         </div>
         
       
-        <span class="text-grey text-center">or sign up using</span>
-        <div class="">
-            <q-btn icon="fab fa-facebook-f" round color="primary"></q-btn>
-        </div>
+       
       </div>
 
      </div>
