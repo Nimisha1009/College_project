@@ -6,11 +6,11 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/ecommerce/Home.vue') },
       {
-        path: 'ecommerce', component: () => import('pages/ecommerce/AuthPage.vue'),
+        path: 'auth', component: () => import('pages/ecommerce/AuthPage.vue'),
         children: [
-          { path: 'login', component: () => import('components/ecommerce_modules/auth/login.vue') },
-          { path: 'signup', component: () => import('components/ecommerce_modules/auth/signup.vue') },
-          { path: 'forgotpassword', component: () => import('components/ecommerce_modules/auth/forgotpassword.vue') },
+          { path: 'login', component: () => import('components/modules/auth/CustomerLogin.vue') },
+          { path: 'signup', component: () => import('components/modules/auth/CustomerSignup.vue') },
+          { path: 'forgotpassword', component: () => import('components/ecommerce_modules/auth/CustomerForgotPassword.vue') },
         ]
       },
 
@@ -71,7 +71,7 @@ const routes = [
     path: '/management',
     component: () => import('layouts/management/MainLayout.vue'),
     children: [
-      
+
       {
         path: '',
         component: () => import('pages/management/DashboardPage.vue'),
@@ -125,10 +125,11 @@ const routes = [
         component: () => import('pages/management/ViewUsers.vue'),
       },
       {
-        path: 'management', component: () => import('pages//AuthPage.vue'),
+        path: 'auth', component: () => import('pages/AuthPage.vue'),
         children: [
           { path: 'login', component: () => import('components/Management_modules/auth/login.vue') },
-        ]},
+        ]
+      },
 
 
 

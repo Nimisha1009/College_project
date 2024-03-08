@@ -8,18 +8,15 @@
         <div class="col">
           <q-input color="text-black" outlined bg-color="white" placeholder="Search products" />
         </div>
-      
+
 
         <q-btn-dropdown class="q-mx-md" label="Orders" flat color="white"></q-btn-dropdown>
         <q-btn icon="shopping_cart" unelevated color="amber-5"><q-badge floating>2</q-badge></q-btn>
-        <q-btn to="/ecommerce/login" label="Login"> </q-btn>
-        <q-btn  to="/seller/auth/login" label="Become a seller" flat color="white"></q-btn>
+        <ProfileButton class="q-mx-md" />
+        <q-btn to="/seller/auth/login" label="Become a seller" flat color="white"></q-btn>
       </div>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-
-    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -29,8 +26,9 @@
 
 <script>
 import CustomerAuthBtn from 'components/modules/auth/CustomerAuthBtn.vue'
+import ProfileButton from 'components/modules/profile/Customer.vue'
 export default {
-  components: { CustomerAuthBtn },
+  components: { CustomerAuthBtn, ProfileButton },
   data () {
     return {
       leftDrawerOpen: false

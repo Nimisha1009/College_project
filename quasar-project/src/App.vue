@@ -6,6 +6,12 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  created () {
+    let token = localStorage.getItem('access_token')
+    if (token) {
+      this.$api.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+    }
+  }
 })
 </script>
