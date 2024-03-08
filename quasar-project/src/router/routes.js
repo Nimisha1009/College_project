@@ -71,6 +71,7 @@ const routes = [
     path: '/management',
     component: () => import('layouts/management/MainLayout.vue'),
     children: [
+      
       {
         path: '',
         component: () => import('pages/management/DashboardPage.vue'),
@@ -123,6 +124,11 @@ const routes = [
         path: 'ViewUsers/',
         component: () => import('pages/management/ViewUsers.vue'),
       },
+      {
+        path: 'management', component: () => import('pages//AuthPage.vue'),
+        children: [
+          { path: 'login', component: () => import('components/Management_modules/auth/login.vue') },
+        ]},
 
 
 

@@ -22,7 +22,7 @@
       </div>
       <div class="column items-center q-my-lg">
         <div>
-          <q-btn flat class="text-h5text-center" color="teal-6" size="lg" to="./signup">Not reigistered? Created an AccounCreate Account</q-btn>
+          <q-btn flat class="text-h5text-center" color="teal-6" size="lg" to="./signup">Not reigistered? Created an Account</q-btn>
         </div>
         
       

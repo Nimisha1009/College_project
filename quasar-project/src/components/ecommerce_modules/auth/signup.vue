@@ -6,7 +6,7 @@
         <h5 class="text-h5 text-white q-my-md">Sign Up</h5>
       </div>
       <div class="row">
-        <q-card square bordered class="q-pa-lg shadow-1">
+        <q-card square bordered class="q-pa-lg shadow-1" style:width="300px">
           <q-card-section>
             <q-form class="q-gutter-md">
                 <q-input v-model="user_name" label="User name" outlined></q-input>
