@@ -1,5 +1,5 @@
 <template>
-    <q-page class="bg-light-green  row justify-center items-center">
+    <q-page class="bg-teal  row justify-center items-center">
       <div class="column">
         <div class="row">
           <h5 class="text-h5 text-white q-my-md">Admin Login</h5>
