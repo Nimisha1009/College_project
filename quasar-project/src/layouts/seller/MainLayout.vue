@@ -10,8 +10,8 @@
 
         <div class="q-pa-md">
 
-          <q-input icon="fa fa-search" rounded outlined v-model="text" label="Search" />
-
+          <q-input icon="fa fa-search" rounded outlined bg-color="white" v-model="text" label="Search" />
+          <ProfileButton class="q-mx-md" />
         </div>
 
       </q-toolbar>

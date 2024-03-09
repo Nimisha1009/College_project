@@ -24,7 +24,7 @@
 
       <div class="column items-center q-my-lg">
         <div>
-          <q-btn flat class="text-h5text-center" color="pink-6" size="lg" to="/auth/signup">Create Account</q-btn>
+          <q-btn flat class="text-h5text-center" color="teal" size="lg" to="/auth/signup">Create Account</q-btn>
         </div>
 
 

@@ -127,7 +127,7 @@ const routes = [
       {
         path: 'auth', component: () => import('pages/AuthPage.vue'),
         children: [
-          { path: 'login', component: () => import('components/Management_modules/auth/login.vue') },
+          { path: 'login', component: () => import('components/modules/auth/ManagementLogin.vue') },
         ]
       },
 

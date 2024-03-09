@@ -1,18 +1,20 @@
 <template>
     <q-form>
         <div class="row q-pa-md">
-            <div class="text-h5 text-center q-my-lg">Welcome to Supplier Panel<span class="text-h6 text-grey text-center">Please login to Your Account</span></div>
+            <div class="text-h5 text-center q-my-lg">Welcome to Supplier Panel</div>
             </div>
             <div class="column">
               <div class="full-width column q-gutter-sm">
                <q-input  label="Email" outlined v-model="auth.email"></q-input>
                <q-input  label="password" outlined  v-model="auth.password"></q-input>
-               {{ auth }}
+               
                 </div>
                   <div class="full-width q-my-md column q-gutter-sm">
-                      <div class="">
-                            <q-btn label="LogIn" style="width:100%" color="primary"  @click="login"></q-btn>
-                        </div>
+                    <div class="">
+          <q-btn :label="authSuccess ? 'Success' : 'Login'" style="width:100%"
+            :color="authSuccess ? 'green' : 'primary'" @click="login" :disabled="authInProgress || authSuccess"
+            :loading="authInProgress"></q-btn>
+        </div>
                          </div>
                 </div>
         <div class="">
@@ -37,15 +39,41 @@ export default {
   data () {
     return {
       auth: {},
+      authInProgress: false,
+      authSuccess: false
     }
   },
   methods: {
-    async login () {
-      let httpRequest = await this.$axios.post('http://localhost:8055/auth/login', this.auth)
-      console.log(httpRequest)
+     async login () {
+      this.$axios.defaults.headers.common['Authorization'] = null;
+      this.authInProgress = true
+      let httpRequest
+      try {
+        httpRequest = await this.$api.post('/auth/login', this.auth)
+      } catch (err) {
+        console.log(err)
+        if (err.response.status === 401) {
+          this.$q.dialog({
+            message: err?.response?.data?.errors?.[0]?.message
+          })
+        }
+        this.authInProgress = false
+        return
+
+      }
+
+      this.authSuccess = true
+      this.authInProgress = false
       let access_token = httpRequest.data.data.access_token
-      this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
+      this.$api.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
       localStorage.setItem('access_token', access_token)
+
+      this.$mitt.emit('login-successfull')
+      setTimeout(() => {
+        this.$router.replace('/')
+      }, 1000)
+
+    
       
      },
     ForgotPassword () {
