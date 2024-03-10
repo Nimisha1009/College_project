@@ -1,7 +1,13 @@
 <template>
-    <q-form>
-        <div class="row q-pa-md">
-            <div class="text-h5 text-center q-my-lg">Welcome to Supplier Panel</div>
+    <q-form class="bg-pink-2">
+        <div class="row q-pa-md bg-pink-3 flex flex-center">
+          <q-card class="q-pa-md shadow-2 my_card" bordered>
+          <q-card-section class="text-center">
+            <div class="text-pink text-h5   text-weight-bold">Welcome to Seller Panel</div>
+            <div class="text-pink-8">Sign in below to access your account</div>
+          </q-card-section>
+        </q-card>
+          
             </div>
             <div class="column">
               <div class="full-width column q-gutter-sm">
@@ -24,13 +30,13 @@
       
       <div class="column items-center q-my-lg">
         <div>
-          <q-btn flat class="text-h5text-center" color="pink-6" size="lg" to="/seller/auth/signup">Registration</q-btn>
+          <q-btn flat class="text-h5text-center" color="pink-6"  to="/seller/auth/signup">Not reigistered? Created an Account</q-btn>
         </div>
         
-      
+    
        
       </div>
-
+  
      </div>
     </q-form>
 </template>
