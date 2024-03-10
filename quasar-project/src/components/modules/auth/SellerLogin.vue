@@ -1,6 +1,6 @@
 <template>
-    <q-form class="bg-pink-2">
-        <div class="row q-pa-md bg-pink-3 flex flex-center">
+    <q-form >
+        <div class="row q-pa-md  flex flex-center">
           <q-card class="q-pa-md shadow-2 my_card" bordered>
           <q-card-section class="text-center">
             <div class="text-pink text-h5   text-weight-bold">Welcome to Seller Panel</div>
@@ -15,6 +15,7 @@
                <q-input  label="password" outlined  v-model="auth.password"></q-input>
                
                 </div>
+            
                   <div class="full-width q-my-md column q-gutter-sm">
                     <div class="">
           <q-btn :label="authSuccess ? 'Success' : 'Login'" style="width:100%"
