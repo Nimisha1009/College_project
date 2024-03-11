@@ -1,5 +1,5 @@
 <template>
-     <q-form>
+     <q-form class="bg-pink-1 ">
         <div class="row q-pa-md">
             <div class="text-h5 text-center ">Registration Form</div>
             </div>

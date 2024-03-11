@@ -16,11 +16,12 @@
         <q-btn to="/seller/auth/login" label="Become a seller" flat color="white"></q-btn>
       </div>
     </q-header>
-    <q-footer  elevated class="bg-black">
-          <q-toolbar>
-           
-            <q-btn  to="/management/auth/login">Admin</q-btn>
-          </q-toolbar>
+    <q-footer elevated class="bg-black">
+     <q-btn   to="/management/auth/login">Admin</q-btn>
+     <div class="flex flex center">
+     
+     </div>
+          
         </q-footer>
 
     <q-page-container>

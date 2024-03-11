@@ -3,7 +3,7 @@
       <div class="row col">
         <div class="col" v-show="$q.screen.gt.xs" >
 
-          <h6>Image</h6>
+          <q-img src="../assets/pic13.jpg" style="height: 650px;" ></q-img>
 </div>
         <q-card class="q-pa-sm" :style="{width: $q.screen.gt.xs ? '420px' : '100%'}">
      <router-view />

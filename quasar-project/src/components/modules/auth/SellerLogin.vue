@@ -1,5 +1,5 @@
 <template>
-    <q-form >
+    <q-form class="bg-pink-1">
         <div class="row q-pa-md  flex flex-center">
           <q-card class="q-pa-md shadow-2 my_card" bordered>
           <q-card-section class="text-center">
@@ -26,7 +26,7 @@
                 </div>
         <div class="">
       <div class="row justify-center">
-        <q-btn  to="./recovery" flat style="color: black">Forgot Password</q-btn>
+        <q-btn  to="./recovery" flat style="color: grey">Forgot Password</q-btn>
       </div>
       
       <div class="column items-center q-my-lg">
