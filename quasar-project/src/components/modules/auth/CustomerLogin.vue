@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     async login () {
-      this.$axios.defaults.headers.common['Authorization'] = null;
+      this.$api.defaults.headers.common['Authorization'] = null;
       this.authInProgress = true
       let httpRequest
       try {
