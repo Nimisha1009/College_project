@@ -26,6 +26,7 @@ const routes = [
         path: '',
         component: () => import('pages/seller/DashboardPage.vue'),
       },
+    
       {
         path: 'auth',
         component: () => import('pages/AuthPage.vue'),

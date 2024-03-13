@@ -35,7 +35,7 @@
   },
   methods: {
     async login () {
-      this.$axios.defaults.headers.common['Authorization'] = null;
+      this.$api.defaults.headers.common['Authorization'] = null;
       this.authInProgress = true
       let httpRequest = await this.$axios.post('http://localhost:8055/auth/login', this.auth)
       this.authSuccess= true
@@ -44,8 +44,11 @@
       let access_token = httpRequest.data.data.access_token
       this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
       localStorage.setItem('access_token', access_token)
-      
-     },}
+      this.$mitt.emit('login-successfull')
+      setTimeout(() => {
+        this.$router.replace('/')
+      }, 1000)
+      },}
     }
    
   

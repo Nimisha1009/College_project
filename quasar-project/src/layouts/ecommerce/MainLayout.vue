@@ -13,16 +13,11 @@
         <q-btn-dropdown class="q-mx-md" label="Orders" flat color="white"></q-btn-dropdown>
         <q-btn icon="shopping_cart" unelevated color="amber-5"><q-badge floating>2</q-badge></q-btn>
         <ProfileButton class="q-mx-md" />
-        <q-btn to="/seller/auth/login" label="Become a seller" flat color="white"></q-btn>
+        <q-btn to="seller/auth/login" label="Become a seller" flat color="white"></q-btn>
       </div>
     </q-header>
-    <q-footer elevated class="bg-black">
-     <q-btn   to="/management/auth/login">Admin</q-btn>
-     <div class="flex flex center">
-     
-     </div>
-          
-        </q-footer>
+
+    
 
     <q-page-container>
       <router-view />
@@ -33,8 +28,10 @@
 <script>
 import CustomerAuthBtn from 'components/modules/auth/CustomerAuthBtn.vue'
 import ProfileButton from 'components/modules/profile/Customer.vue'
+import EcommerceFooter from 'components/Footers/EcommerceFooter.vue'
+import ProductCard from 'components/Card/ProductCard.vue'
 export default {
-  components: { CustomerAuthBtn, ProfileButton },
+  components: { CustomerAuthBtn, ProfileButton,ProductCard,EcommerceFooter },
   data () {
     return {
       leftDrawerOpen: false

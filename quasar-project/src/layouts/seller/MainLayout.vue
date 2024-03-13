@@ -16,7 +16,7 @@
 
       </q-toolbar>
     </q-header>
-
+  
 
     <q-page-container>
       <router-view />
@@ -26,11 +26,12 @@
 
 <script>
 import SellerMenu from 'components/modules/menu/SellerMenu.vue'
+import ProfileButton from 'components/modules/profile/Seller.vue'
 
 
 export default {
   name: 'MainLayout',
-  components: { SellerMenu },
+  components: { SellerMenu,ProfileButton },
   data () {
   }
 

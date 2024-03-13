@@ -4,7 +4,7 @@
            <q-toolbar>
              <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
              <q-toolbar-title>Admin Panel</q-toolbar-title>
-             <q-btn label="profile"/>
+             <ProfileButton class="q-mx-md" />
              </q-toolbar>
              </q-header>
            <q-page-container>
@@ -31,11 +31,12 @@
    
    <script>
    import ManagementMenu from 'components/modules/menu/ManagementMenu.vue'
-   
+   import ProfileButton from 'components/modules/profile/Admin.vue'
+
    
    export default {
      name: 'MainLayout',
-     components: { ManagementMenu },
+     components: { ManagementMenu,ProfileButton },
      data () {
      }
    

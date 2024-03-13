@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-    name: "Login",
+    name:'AccountPage',
   data(){
     return{
         check:false,

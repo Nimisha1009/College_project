@@ -1,7 +1,7 @@
 <template>
  
      <q-form class=" q-pa-md">
-      <div class=" bg-pink text-h6 text-center"> Insert Product</div>
+      <div class="text-h6 text-center"> Insert Product</div>
          <div class="q-pa-md">
             <q-input label="Product Tittle"/>
             </div>

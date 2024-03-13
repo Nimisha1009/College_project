@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     
-    <q-card class="q-pa-md" style="width:360px">
+    <q-card class="q-pa-md" style="width:500px">
       <RouterView />
     </q-card>
   </q-page>
