@@ -17,16 +17,10 @@ const routes = [
     ]
   },
 
-
   {
     path: '/seller',
-    component: () => import('layouts/seller/MainLayout.vue'),
+    component: () => import('layouts/seller/LoginLayout.vue'),
     children: [
-      {
-        path: '',
-        component: () => import('pages/seller/DashboardPage.vue'),
-      },
-    
       {
         path: 'auth',
         component: () => import('pages/AuthPage.vue'),
@@ -53,8 +47,18 @@ const routes = [
           },
         ]
       },
+    ]
+  },
+  {
+    path: '/seller',
+    component: () => import('layouts/seller/MainLayout.vue'),
+    children: [
       {
-        path: 'products/',
+        path: 'dashboard',
+        component: () => import('pages/seller/DashboardPage.vue'),
+      },
+      {
+        path: 'products',
         component: () => import('layouts/seller/MainLayout.vue'),
       },
       {

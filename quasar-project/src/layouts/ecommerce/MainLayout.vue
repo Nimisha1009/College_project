@@ -17,7 +17,9 @@
       </div>
     </q-header>
 
-    
+    <q-footer>
+      <EcommerceFooter></EcommerceFooter>
+    </q-footer>
 
     <q-page-container>
       <router-view />
@@ -31,7 +33,7 @@ import ProfileButton from 'components/modules/profile/Customer.vue'
 import EcommerceFooter from 'components/Footers/EcommerceFooter.vue'
 import ProductCard from 'components/Card/ProductCard.vue'
 export default {
-  components: { CustomerAuthBtn, ProfileButton,ProductCard,EcommerceFooter },
+  components: { CustomerAuthBtn, ProfileButton, ProductCard, EcommerceFooter },
   data () {
     return {
       leftDrawerOpen: false
