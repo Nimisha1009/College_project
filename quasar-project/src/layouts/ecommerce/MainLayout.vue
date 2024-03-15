@@ -13,7 +13,7 @@
         <q-btn-dropdown class="q-mx-md" label="Orders" flat color="white"></q-btn-dropdown>
         <q-btn icon="shopping_cart" unelevated color="amber-5"><q-badge floating>2</q-badge></q-btn>
         <ProfileButton class="q-mx-md" />
-        <q-btn to="seller/auth/login" label="Become a seller" flat color="white"></q-btn>
+        <q-btn to="/seller/auth/login" label="Become a seller" flat color="white"></q-btn>
       </div>
     </q-header>
 
