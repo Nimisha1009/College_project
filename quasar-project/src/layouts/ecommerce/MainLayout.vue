@@ -6,7 +6,7 @@
           <!-- <q-img></q-img> -->
         </div>
         <div class="col">
-          <q-input color="text-black" outlined bg-color="white" placeholder="Search for a category, Brand or Product" />
+          <q-input color="text-black" flat outlined bg-color="white" placeholder="Search for a category, Brand or Product" />
         </div>
        
         <q-btn-dropdown class="q-mr-xs" label="Orders" flat color="black"></q-btn-dropdown>

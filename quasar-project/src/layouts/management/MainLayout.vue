@@ -23,8 +23,8 @@
            :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-teal-7'">
            <q-scroll-area class="fit">
              <q-list>
-               <div class="row">
-             <ManagementMenu />
+               <div class="row" >
+             <ManagementMenu  />
            
            </div>
            
@@ -49,4 +49,6 @@
    
    }
    </script>
-   <style></style>
+   <style>
+  
+  </style>

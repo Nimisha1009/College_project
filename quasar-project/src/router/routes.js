@@ -13,8 +13,22 @@ const routes = [
           { path: 'forgotpassword', component: () => import('components/ecommerce_modules/auth/CustomerForgotPassword.vue') },
         ]
       },
-
-    ]
+      {
+       path:'ecommerce',
+       component: () => import('layouts/ecommerce/MainLayout.vue'),
+       children: [
+        { path: 'AllCategories', component: () => import('pages/ecommerce/AllCategories.vue')},
+        { path: 'GirlsFashion', component: () => import('pages/ecommerce/GirlsFashion.vue')},
+        { path: 'BoysFashion', component: () => import('pages/ecommerce/BoysFashion.vue')},
+        { path: 'Footwear', component: () => import('pages/ecommerce/Footwear.vue')},
+        { path: 'Toys', component: () => import('pages/ecommerce/Toys.vue')},
+        { path: 'Bath', component: () => import('pages/ecommerce/Bath.vue')},
+        { path: 'Diapering', component: () => import('pages/ecommerce/Diapering.vue')},
+        { path: 'Health', component: () => import('pages/ecommerce/Health.vue')},
+       
+      ]
+      },
+       ]
   },
 
   {

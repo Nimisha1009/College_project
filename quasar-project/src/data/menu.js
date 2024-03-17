@@ -31,7 +31,7 @@ export default {
 
     management: [
         {
-            label: 'Dashboard', url: '', icon: 'fas fa-tachometer-alt'
+            label: 'Dashboard', url: '', icon: ''
          },
          {
             label: 'Product', url: '', icon: '', subMenu:[
@@ -77,6 +77,35 @@ export default {
 
     ],
     ecommerce: [
+        {
+            label: 'All Categories', url: 'ecommerce/AllCategories', icon: ''
+         },
+         {
+            label: 'GIRLS FASHION', url: 'ecommerce/GirlsFashion', icon: ''
+        },
+        {
+            label: 'BOYS FASHION', url: 'ecommerce/BoysFashion', icon: ''
+            
+        },
+        {
+            label: 'FOOTWEAR', url: 'ecommerce/Footwear', icon: ''
+        },
+        {
+            label: 'TOYS', url: 'ecommerce/Toys', icon: ''
+            
+        },
+        {
+            label: 'BATH', url: 'ecommerce/Bath', icon: ''
+        },
+        {
+            label: 'DIAPERING', url: 'ecommerce/Diapering', icon: ''
+        },
+        {
+            label: 'NURSERY', url: 'ecommerce/Nursery', icon: ''
+        },
+        {
+            label: 'HEALTH', url: 'ecommerce/Health', icon: ''
+        },
 
 
     ]
