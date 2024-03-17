@@ -1,22 +1,33 @@
 <template>
   <q-layout view="hHh Lpr lFf">
-    <q-header elevated class="bg-teal-7">
-      <div class="row q-pa-md">
-        <div style="width:100px">
+    <q-header elevated class="bg-white">
+      <div class="row q-pa-md " >
+        <div style="width:80px">
           <!-- <q-img></q-img> -->
         </div>
         <div class="col">
-          <q-input color="text-black" outlined bg-color="white" placeholder="Search products" />
+          <q-input color="text-black" outlined bg-color="white" placeholder="Search for a category, Brand or Product" />
         </div>
-
-
-        <q-btn-dropdown class="q-mx-md" label="Orders" flat color="white"></q-btn-dropdown>
-        <q-btn icon="shopping_cart" unelevated color="amber-5"><q-badge floating>2</q-badge></q-btn>
-        <ProfileButton class="q-mx-md" />
-        <q-btn to="/seller/auth/login" label="Become a seller" flat color="white"></q-btn>
+       
+        <q-btn-dropdown class="q-mr-xs" label="Orders" flat color="black"></q-btn-dropdown>
+        <q-separator vertical inset />
+        <q-btn-dropdown class="q-mr-xs" label="Support" flat color="black"></q-btn-dropdown>
+        <q-separator vertical  />
+        <q-btn  class="q-mr-xs" icon="shopping_cart" unelevated color="amber-5"><q-badge floating>2</q-badge></q-btn>
+        <q-separator vertical  />
+        <ProfileButton class="q-mr-xs"/>
+        <q-separator vertical/>
+        <q-btn  class="q-mr-xs" icon="" unelevated label="shortlist" flat color="black"></q-btn>
+        <q-separator vertical/>
+        <q-btn class="q-mr-xs"  to="/seller/auth/login" label="Become a seller" flat color="black"></q-btn>
       </div>
+      <q-navbar>
+      <NavbarEcom></NavbarEcom>
+    </q-navbar>
     </q-header>
+    
    
+     
 
     <q-footer>
       <EcommerceFooter></EcommerceFooter>
@@ -32,9 +43,9 @@
 import CustomerAuthBtn from 'components/modules/auth/CustomerAuthBtn.vue'
 import ProfileButton from 'components/modules/profile/Customer.vue'
 import EcommerceFooter from 'components/Footers/EcommerceFooter.vue'
-
+import NavbarEcom from 'components/Navbar/NavbarEcom.vue'
 export default {
-  components: { CustomerAuthBtn, ProfileButton,  EcommerceFooter },
+  components: { CustomerAuthBtn, ProfileButton,  EcommerceFooter, NavbarEcom },
   data () {
     return {
       leftDrawerOpen: false

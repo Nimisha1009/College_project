@@ -5,8 +5,8 @@
       <div>{{ categories[0] }}</div>
   </div>
    <div class="row">
-    <div v-for="category of categories" :key="category.id">
-      <categorybox></categorybox>
+    <div v-for="category of categories" :key="category.id" class="col-4 col-md-6">
+      <categorybox :category="category"></categorybox>
     </div>
    </div>
  </div>
@@ -18,9 +18,7 @@ export default{
   components: {ComponentBox},
   data(){
     return {
-     
-
-    };
+      };
   },
   methods:{
     async getCategories(){

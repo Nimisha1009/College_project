@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" style="width:100; height:100">
         <div>
             <q-img  :src="category.imageUrl" alt="card image"></q-img>
       </div>

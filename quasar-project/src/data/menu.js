@@ -31,7 +31,7 @@ export default {
 
     management: [
         {
-            label: 'Dashboard', url: '', icon: ''
+            label: 'Dashboard', url: '', icon: 'fas fa-tachometer-alt'
          },
          {
             label: 'Product', url: '', icon: '', subMenu:[
@@ -59,7 +59,7 @@ export default {
         },
 
         {
-            label:'View Customer', url:'management/ViewCustomer', icon:''
+            label:'View Customer', url:'management/ViewCustomer', icon:'fas fa-user'
         },
         {
             label:'View Order', url:'management/ViewOrder', icon:''

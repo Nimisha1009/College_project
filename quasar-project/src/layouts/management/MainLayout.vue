@@ -10,6 +10,9 @@
            <q-page-container>
           <router-view />
          </q-page-container>
+        
+
+        
    
          <q-drawer
            v-model="drawer"
@@ -22,8 +25,12 @@
              <q-list>
                <div class="row">
              <ManagementMenu />
+           
            </div>
+           
+
              </q-list>
+             
            </q-scroll-area>
          </q-drawer>
    </q-layout>
@@ -42,4 +49,4 @@
    
    }
    </script>
-   
+   <style></style>
