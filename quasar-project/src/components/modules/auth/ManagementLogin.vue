@@ -46,7 +46,7 @@
       localStorage.setItem('access_token', access_token)
       this.$mitt.emit('login-successfull')
       setTimeout(() => {
-        this.$router.replace('/')
+        this.$router.replace('/management/Dashboard')
       }, 1000)
       },}
     }

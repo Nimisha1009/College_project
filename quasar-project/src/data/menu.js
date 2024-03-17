@@ -47,7 +47,7 @@ export default {
         },
         {
             label:'Categories', url:'', icon:'', subMenu:[
-                { label:'Insert Categories', url:'management/InsertCategory',icon:'',},
+                { label:'Add Categories', url:'management/AddCategory',icon:'',},
                 {label:'view Categories', url:'management/ViewCategories', icon:''}
             ]
         },

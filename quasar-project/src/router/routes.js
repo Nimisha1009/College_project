@@ -74,11 +74,27 @@ const routes = [
   },
   {
     path: '/management',
+    component: () => import('layouts/management/LoginLayout.vue'),
+    children: [
+      {
+        path: 'auth',
+        component: () => import('pages/management/AuthPage.vue'),
+        children: [
+          {
+            path: 'login',
+            component: () => import('components/modules/auth/ManagementLogin.vue')
+          }
+          ]
+        }
+    ]
+          },
+   {
+    path: '/management',
     component: () => import('layouts/management/MainLayout.vue'),
     children: [
 
       {
-        path: '',
+        path: 'Dashboard',
         component: () => import('pages/management/DashboardPage.vue'),
       },
       {
@@ -106,8 +122,8 @@ const routes = [
         component: () => import('pages/management/ViewCategories.vue'),
       },
       {
-        path: 'InsertCategory/',
-        component: () => import('pages/management/InsertCategory.vue'),
+        path: 'AddCategory/',
+        component: () => import('pages/management/AddCategory.vue'),
       },
       {
         path: 'InsertBox/',

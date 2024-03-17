@@ -8,10 +8,7 @@
             <div>
               <q-input label="Product Categories"/>
             </div>
-            <div>
-              <q-input/>
-            </div>
-            <div class="q-pa-md ">
+           <div class="q-pa-md ">
               <q-input label="product-Id" />
             </div>
             <div class="q-pa-md">

@@ -16,6 +16,7 @@
         <q-btn to="/seller/auth/login" label="Become a seller" flat color="white"></q-btn>
       </div>
     </q-header>
+   
 
     <q-footer>
       <EcommerceFooter></EcommerceFooter>
@@ -31,9 +32,9 @@
 import CustomerAuthBtn from 'components/modules/auth/CustomerAuthBtn.vue'
 import ProfileButton from 'components/modules/profile/Customer.vue'
 import EcommerceFooter from 'components/Footers/EcommerceFooter.vue'
-import ProductCard from 'components/Card/ProductCard.vue'
+
 export default {
-  components: { CustomerAuthBtn, ProfileButton, ProductCard, EcommerceFooter },
+  components: { CustomerAuthBtn, ProfileButton,  EcommerceFooter },
   data () {
     return {
       leftDrawerOpen: false

@@ -1,30 +1,33 @@
 <template>
-    <q-form class="column q-gutter-md">
-        <div class="text-h5 q-ma-md">View Categories</div>
-      <q-table
-        :rows="rows"
-        row-key="name"
-        flat bordered
-      />
- </q-form>
-  </template>
-  <script>
-  const rows = [
-    {
-      Category_Id:'',
-      Category_Title: '',
-    Category_Description: '',
-      Delete_Category: '',
-      Edit_Category: '',
-      
-    },
-   ]
-  export default {
-    setup () {
-      return { rows }
+  <div class="container ">
+  <div class="row ">
+      <div class="text-h5 text-center q-my-lg col-12">Our Categories</div>
+      <div>{{ categories[0] }}</div>
+  </div>
+   <div class="row">
+    <div v-for="category of categories" :key="category.id">
+      <categorybox></categorybox>
+    </div>
+   </div>
+ </div>
+</template>
+<script>
+import CategoryBox from 'components/Category/CategoryBox.vue'
+export default{
+  name:'ViewCategories',
+  components: {ComponentBox},
+  data(){
+    return {
+     
+
+    };
+  },
+  methods:{
+    async getCategories(){
+      await axios.get()
     }
-  }
-  </script>
+  },
+ 
+  };
   
-  
-  
+</script>
