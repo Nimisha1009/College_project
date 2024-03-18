@@ -100,9 +100,7 @@ export default {
         {
             label: 'DIAPERING', url: 'ecommerce/Diapering', icon: ''
         },
-        {
-            label: 'NURSERY', url: 'ecommerce/Nursery', icon: ''
-        },
+       
         {
             label: 'HEALTH', url: 'ecommerce/Health', icon: ''
         },

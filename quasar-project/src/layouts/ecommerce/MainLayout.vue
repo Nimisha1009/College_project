@@ -21,14 +21,9 @@
         <q-separator vertical/>
         <q-btn class="q-mr-xs"  to="/seller/auth/login" label="Become a seller" flat color="black"></q-btn>
       </div>
-      <q-navbar>
-      <NavbarEcom></NavbarEcom>
-    </q-navbar>
+      <q-navbar><NavbarEcom></NavbarEcom></q-navbar>
+     <!-- <q-carousel><Slider1></Slider1></q-carousel>-->
     </q-header>
-    
-   
-     
-
     <q-footer>
       <EcommerceFooter></EcommerceFooter>
     </q-footer>
@@ -44,8 +39,9 @@ import CustomerAuthBtn from 'components/modules/auth/CustomerAuthBtn.vue'
 import ProfileButton from 'components/modules/profile/Customer.vue'
 import EcommerceFooter from 'components/Footers/EcommerceFooter.vue'
 import NavbarEcom from 'components/Navbar/NavbarEcom.vue'
+
 export default {
-  components: { CustomerAuthBtn, ProfileButton,  EcommerceFooter, NavbarEcom },
+  components: { CustomerAuthBtn, ProfileButton,  EcommerceFooter, NavbarEcom, },
   data () {
     return {
       leftDrawerOpen: false

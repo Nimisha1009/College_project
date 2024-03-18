@@ -24,7 +24,7 @@ const routes = [
         { path: 'Toys', component: () => import('pages/ecommerce/Toys.vue')},
         { path: 'Bath', component: () => import('pages/ecommerce/Bath.vue')},
         { path: 'Diapering', component: () => import('pages/ecommerce/Diapering.vue')},
-        { path: 'Health', component: () => import('pages/ecommerce/Health.vue')},
+       { path: 'Health', component: () => import('pages/ecommerce/Health.vue')},
        
       ]
       },
