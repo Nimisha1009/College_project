@@ -1,6 +1,7 @@
 <template>
+  
     <q-layout view="hHh Lpr lff" container style="height: 600px" class="shadow-2 rounded-borders">
-         <q-header elevated :class="$q.dark.isActive ? 'bg-secondary' : 'bg-teal-7'">
+         <q-header elevated :class="$q.dark.isActive ? 'bg-secondary' : 'bg-white'">
            <q-toolbar>
              <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
              <q-toolbar-title>Admin Panel</q-toolbar-title>
@@ -20,7 +21,7 @@
            :width="200"
            :breakpoint="500"
            bordered
-           :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-teal-7'">
+           :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-white'">
            <q-scroll-area class="fit">
              <q-list>
                <div class="row" >
@@ -49,4 +50,8 @@
    
    }
    </script>
-  
+  <style>
+  .row{
+  color: blue;
+  }
+</style>

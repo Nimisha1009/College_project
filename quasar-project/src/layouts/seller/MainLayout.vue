@@ -1,17 +1,17 @@
 <template>
   <q-layout view="lHh Lpr lFf">
    
-    <q-header elevated class="bg-pink-4">
+    <q-header elevated class="bg-teal ">
       <q-toolbar class="text-white">
 
         <div class="column">
           <SellerMenu />
          </div>
 
-        <div class="q-pa-md">
+        <div class=" row q-pa-md">
 
           <q-input icon="fa fa-search" rounded outlined bg-color="white" v-model="text" label="Search" />
-          <ProfileButton class="q-mx-md" />
+         <div class="q-pa-sm bg-teal-9"><ProfileButton class="q-mx-md"  /></div> 
         </div>
 
       </q-toolbar>

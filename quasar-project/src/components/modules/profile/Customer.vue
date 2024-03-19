@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-btn to="/auth/login" label="Login" color="black" flat v-if="!profile"> </q-btn>
+    <q-btn to="/auth/login" label="Login"  color="black" flat v-if="!profile"> </q-btn>
     <q-avatar color="white" v-else><img :src="'http://localhost:8055/assets/' + profile.avatar">
       <q-menu>
         <q-card style="width: 250px" class="q-pa-md">
