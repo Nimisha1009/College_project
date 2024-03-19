@@ -48,28 +48,10 @@ export default{
                 description: this.description,
                 imageUrl: this.imageUrl,
             };
-            const baseUrl="";
-            Axios({
-                methods: 'post',
-                url:` ${baseUrl}/category/create`,
-                data: JSON.stringyfy(neCategory),
-                header:{
-                    "content-Type":"application/json",
-                },
-            })
-    .then(()=> {
-        sweetalert({
-            text:"category added successfully",
-            icon:"success",
-        });
-    })
-   .catch((err)=>{
-    console.log(err);
-   });
-        },
-
-            
-        },
-    }
+         
+   
+        }}
+        }
+    
     
 </script>
