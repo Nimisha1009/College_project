@@ -96,7 +96,7 @@ const routes = [
       },
       {
         path: 'SellOrder',
-        component: () => import('pages/seller/SellsOrder.vue'),
+        component: () => import('pages/seller/SellOrder.vue'),
       },
       {
         path: 'PaymentOverview',
