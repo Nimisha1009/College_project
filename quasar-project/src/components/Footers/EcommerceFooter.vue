@@ -1,7 +1,7 @@
 <template>
     
 <q-footer elevated class="bg-black">
-     <q-btn   to="/management/auth/login">Admin</q-btn>
+     <q-btn  color="white"  to="/management/auth/login">Admin</q-btn>
     </q-footer>
 </template>
 <script>

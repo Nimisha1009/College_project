@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Menu from 'components/commons/Menu.vue'
+import Menu from 'components/commons/ManagementMenu.vue'
 import menu from 'src/data/menu.js'
 console.log(menu)
 export default {
