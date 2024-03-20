@@ -23,7 +23,9 @@
     <q-input outlined type="text" v-model="formData.imageUrl"/>
 </div>
 <div class="column items-center q-my-lg">
-    <q-btn label="Add" color="primary" v-on:click="formData.add"></q-btn>
+ <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" />
+ <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go(-1)" />
+    
 </div>
 </q-form>
 </div>

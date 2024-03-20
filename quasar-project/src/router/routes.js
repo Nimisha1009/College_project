@@ -72,21 +72,11 @@ const routes = [
         path: 'dashboard',
         component: () => import('pages/seller/DashboardPage.vue'),
       },
-      {
-        path: 'Product',
-        component: () => import('pages/seller/ProductPage.vue'),
-      },
-
-      {
-        path: 'add/Categories',
+     {
+        path: '/Categories',
         component: () => import('pages/seller/CategoriesPage.vue'),
       },
-      
-      {
-        path: 'products/add',
-        component: () => import('layouts/seller/MainLayout.vue'),
-      },
-      {
+     {
         path: 'products/request',
         component: () => import('layouts/seller/MainLayout.vue'),
       },

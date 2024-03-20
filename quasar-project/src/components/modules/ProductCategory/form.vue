@@ -6,10 +6,11 @@
               <div class="text-h6 text-center">Product Category</div>
            <div>
               <div class="row col-6 q-pa-md justify-between">
-              <q-input label="Product-Id"/>
+              <q-input label="Product-Id"></
                </div>
              <div class="q-pa-md">
               <q-input label="Name"/></div>
+            </div>
             </div>
                  </div>
                   </q-form>

@@ -1,35 +1,44 @@
 <template>
- 
-     <q-form class=" q-pa-md">
+ <q-form>
+     <div div class=" column ">
       <div class="text-h6 text-center"> Add Product</div>
-         <div class="q-pa-md">
-            <q-input label="Product Name"  v-model="formData.Product_name"/>
-            </div>
-            <div>
-              <q-input label="Product Categories"  v-model="formData.Product_Categories"/>
-            </div>
-          
-           
-            <div class="q-pa-md">
-              <q-input label="Product Price"  v-model="formData.Product_Price" />
-            </div>
-            <div class="q-pa-md">
-              <q-input label="Seller-Id"  v-model="formData.Seller_Id" />
-            </div>
-            <div class="q-pa-md">
-              <q-input type="date" label="Product-Date"   v-model="formData.Product_Date"/>
-            </div>
-            <q-select emit-value :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
+      <div class="col-12 col-md-3 q-ma-sm">
+        <label for="Name">Product Name</label>
+        <q-input outlined v-model="formData.Product_name" />
+      </div>
+      <div class="col-12 col-md-3 q-ma-sm">
+        <label for="Name">Product Categories</label>
+        <q-input outlined v-model="formData.Product_Categories" />
+      </div>
+      <div class="col-12 col-md-3 q-ma-sm">
+        <label for="Name">Product Price</label>
+        <q-input outlined v-model="formData.Product_Price" />
+      </div>
+      <div class="col-12 col-md-3 q-ma-sm">
+        <label for="Name">Seller Id</label>
+        <q-input outlined v-model="formData.Seller_Id" />
+      </div>
+      <div class="col-12 col-md-3 q-ma-sm">
+        <label for="Name">Product Image</label>
+        <q-input outlined v-model="formData.Product_Image" />
+      </div>
+      
+      <div class="col-12 col-md-3 q-ma-sm">
+        <label for="Name"> Date</label>
+        <q-input type="date" outlined v-model="formData.Product_Date" />
+      </div>
+<q-select emit-value :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
             v-model="formData.status"></q-select>
-            <div class="q-pa-md">
-              <q-input type="date" label="Quantity"   v-model="formData.Quantity"/>
-            </div>
-            <div class="q-pa-md" style="max-width: 500px">
+            <div class="col-12 col-md-3 q-ma-sm">
+        <label for="Name">Product- Quantity</label>
+        <q-input  outlined v-model="formData.Product_Quantity" />
+      </div> 
+           <div class="col-12 col-md-3 q-ma-sm">
               <q-input label="Description" filled autogrow  v-model="formData.Description"/>
-            </div>
+            </div></div>
             <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" />
         <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go(-1)" />
-    
+          
       </q-form>
  
 </template>
