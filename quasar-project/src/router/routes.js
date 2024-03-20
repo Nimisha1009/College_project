@@ -72,7 +72,12 @@ const routes = [
         path: 'dashboard',
         component: () => import('pages/seller/DashboardPage.vue'),
       },
-     {
+      {
+        path: 'Product/',
+        component: () => import('pages/seller/ProductPage.vue'),
+      },
+
+      {
         path: '/Categories',
         component: () => import('pages/seller/CategoriesPage.vue'),
       },
