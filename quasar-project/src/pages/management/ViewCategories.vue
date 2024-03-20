@@ -11,7 +11,9 @@
 const rows = [
   {
     Product_Category_Id:'',
-    Product_Category_Title: '',
+
+    Product_Category_Name: '',
+    Product_Category_Image:'',
     Product_Category_Description: '',
     Delete_Product_Category: '',
     Edit_Product_Category: '',

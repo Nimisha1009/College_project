@@ -161,10 +161,7 @@ const routes = [
         path: 'Dashboard',
         component: () => import('pages/management/DashboardPage.vue'),
       },
-      {
-        path: 'products/',
-        component: () => import('pages/management/ProductsPage.vue'),
-      },
+    
       {
         path: 'InsertProduct',
         component: () => import('pages/management/InsertProduct.vue'),

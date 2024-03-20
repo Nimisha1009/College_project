@@ -41,18 +41,18 @@ export default {
             ]
         },
         {
-            label: 'Product', url: '', icon: '', subMenu:[
-                { label:'Insert Product', url:'/management/InsertProduct', icon:'',},
-                {label:'view Product', url:'/management/ViewProduct', icon:''}
+            label: 'Products', url: '', icon: '', subMenu:[
+                { label:'Insert Products', url:'/management/InsertProduct', icon:'',},
+                {label:'view Products', url:'/management/ViewProduct', icon:''}
             ]
         },
        
 
         {
-            label:'View Customer', url:'/management/ViewCustomer', icon:'fas fa-user'
+            label:' Customers', url:'/management/ViewCustomer', icon:'fas fa-user'
         },
         {
-            label:'View Order', url:'/management/ViewOrder', icon:''
+            label:'View Orders', url:'/management/ViewOrder', icon:''
         },
         {
             label:'View Payment', url:'/management/ViewPayment', icon:''
