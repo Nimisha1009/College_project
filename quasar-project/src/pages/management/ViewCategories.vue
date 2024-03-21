@@ -1,30 +1,23 @@
 <template>
-  <div class="q-pa-md">
-    <q-table
-      :rows="rows"
-      row-key="name"
-      flat bordered
-    />
-  </div>
-</template>
-<script>
-const rows = [
-  {
-    Product_Category_Id:'',
-
-    Product_Category_Name: '',
-    Product_Category_Image:'',
-    Product_Category_Description: '',
-    Delete_Product_Category: '',
-    Edit_Product_Category: '',
-    
-  },
- ]
-export default {
-  setup () {
-    return { rows }
+  <q-table :rows="rows"></q-table>
+  </template>
+  <script>
+  export default {
+      name:'ViewCategories',
+      data(){
+          return {
+              rows: [],
+          }
+      },
+      methods: {
+          async fetchProducts(){
+           let httpClient = await this.$axios.get('http://localhost:8055/items/products_categories')
+           this.rows = httpClient.data.data
+          }
+      },
+      created(){
+          this.fetchProducts()
+      }
   }
-}
-</script>
-
-
+  
+  </script>
