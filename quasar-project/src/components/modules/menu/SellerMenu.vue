@@ -1,7 +1,7 @@
 <template>
 
   <div class="row">
-    <Menu :menu="menu.seller"></Menu>
+    <TopMenu :menu="menu.seller"></TopMenu>
   </div>
 
 
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import Menu from 'components/commons/Menu.vue'
+import TopMenu from 'components/commons/TopMenu.vue'
 import menu from 'src/data/menu.js'
 console.log(menu)
 export default {
-  components: { Menu },
+  components: { TopMenu },
   data () {
     return {
       menu

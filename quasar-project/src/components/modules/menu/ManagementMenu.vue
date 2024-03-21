@@ -1,19 +1,20 @@
 <template>
 
-  <div class="row">
-    <Menu :menu="menu.management" ></Menu>
-  </div>
+
+  <SideMenu :menu="menu.management">
+  </SideMenu>
+
 
 
 
 </template>
 
 <script>
-import Menu from 'components/commons/ManagementMenu.vue'
+import SideMenu from 'components/commons/SideMenu.vue'
 import menu from 'src/data/menu.js'
 console.log(menu)
 export default {
-  components: { Menu },
+  components: { SideMenu },
   data () {
     return {
       menu

@@ -69,22 +69,6 @@ export default {
     },
 
 
-    {
-      label: 'View Customer', url: '/management/ViewCustomer', icon: 'fas fa-user'
-    },
-    {
-      label: 'View Order', url: '/management/ViewOrder', icon: ''
-    },
-    {
-      label: 'View Payment', url: '/management/ViewPayment', icon: ''
-    },
-    {
-      label: 'Users', url: '', icon: '', subMenu: [
-        { label: 'view Users', url: '/management/ViewUsers', icon: '', },
-        { label: 'Edit Profile', url: '', icon: '' }
-      ]
-    },
-
 
   ],
   ecommerce: [
