@@ -14,26 +14,26 @@ const routes = [
         ]
       },
       {
-       path:'ecommerce',
-       component: () => import('layouts/ecommerce/MainLayout.vue'),
-       children: [
-        { path: 'AllCategories', component: () => import('pages/ecommerce/AllCategories.vue')},
-        { path: 'GirlsFashion', component: () => import('pages/ecommerce/GirlsFashion.vue')},
-        { path: 'BoysFashion', component: () => import('pages/ecommerce/BoysFashion.vue')},
-        { path: 'Footwear', component: () => import('pages/ecommerce/Footwear.vue')},
-        { path: 'Toys', component: () => import('pages/ecommerce/Toys.vue')},
-        { path: 'Bath', component: () => import('pages/ecommerce/Bath.vue')},
-        { path: 'Diapering', component: () => import('pages/ecommerce/Diapering.vue')},
-       { path: 'Health', component: () => import('pages/ecommerce/Health.vue')},
-       
-      ]
+        path: 'ecommerce',
+        component: () => import('layouts/ecommerce/MainLayout.vue'),
+        children: [
+          { path: 'AllCategories', component: () => import('pages/ecommerce/AllCategories.vue') },
+          { path: 'GirlsFashion', component: () => import('pages/ecommerce/GirlsFashion.vue') },
+          { path: 'BoysFashion', component: () => import('pages/ecommerce/BoysFashion.vue') },
+          { path: 'Footwear', component: () => import('pages/ecommerce/Footwear.vue') },
+          { path: 'Toys', component: () => import('pages/ecommerce/Toys.vue') },
+          { path: 'Bath', component: () => import('pages/ecommerce/Bath.vue') },
+          { path: 'Diapering', component: () => import('pages/ecommerce/Diapering.vue') },
+          { path: 'Health', component: () => import('pages/ecommerce/Health.vue') },
+
+        ]
       },
-       ]
+    ]
   },
 
   {
     path: '/seller',
-    
+
     component: () => import('layouts/seller/LoginLayout.vue'),
     children: [
       {
@@ -48,7 +48,7 @@ const routes = [
             path: 'signup',
             component: () => import('components/modules/auth/SellerSignup.vue')
           },
-        
+
         ]
       },
       {
@@ -73,15 +73,25 @@ const routes = [
         component: () => import('pages/seller/DashboardPage.vue'),
       },
       {
-        path: 'Product/',
+        path: 'products',
         component: () => import('pages/seller/ProductPage.vue'),
+      },
+      {
+        path: 'my-products',
+        component: () => import('pages/seller/ProductPage.vue'),
+        children: [
+          {
+            path: 'add',
+            component: () => import('components/modules/products/AddSellerProduct.vue')
+          }
+        ]
       },
 
       {
         path: '/Categories',
         component: () => import('pages/seller/CategoriesPage.vue'),
       },
-     {
+      {
         path: 'products/request',
         component: () => import('layouts/seller/MainLayout.vue'),
       },
@@ -115,23 +125,23 @@ const routes = [
       },
       {
         path: 'products/:mode?',
-      component: () => import('pages/seller/ProductPage.vue'),
-      props:true,
-      children: [
-       { path: '',component: () => import('components/modules/products/form.vue'), props:true}
-      ]
-     },
-     {
-      path: 'Categories/:mode?',
-    component: () => import('pages/CategoriesPage.vue'),
-    props:true,
-    children: [
-     { path: '',component: () => import('components/modules/Categories/form.vue'), props:true}
-    ]
-   },
-      
-      
-      
+        component: () => import('pages/seller/ProductPage.vue'),
+        props: true,
+        children: [
+          { path: '', component: () => import('components/modules/products/form.vue'), props: true }
+        ]
+      },
+      {
+        path: 'Categories/:mode?',
+        component: () => import('pages/CategoriesPage.vue'),
+        props: true,
+        children: [
+          { path: '', component: () => import('components/modules/Categories/form.vue'), props: true }
+        ]
+      },
+
+
+
 
 
     ]
@@ -148,11 +158,11 @@ const routes = [
             path: 'login',
             component: () => import('components/modules/auth/ManagementLogin.vue')
           }
-          ]
-        }
+        ]
+      }
     ]
-          },
-   {
+  },
+  {
     path: '/management',
     component: () => import('layouts/management/MainLayout.vue'),
     children: [
