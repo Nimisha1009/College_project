@@ -1,6 +1,7 @@
 <template>
-    <q-page class="bg-green  row justify-center items-center">
-      <div class="column">
+  
+    <q-page class="bg-green   row justify-center items-center">
+      <div class="column bordered">
         <div class="row flex flex-center">
           <h5 class="text-h5 text-white q-my-md">Admin Login</h5>
         </div>

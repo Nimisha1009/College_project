@@ -3,7 +3,7 @@
     </template>
     <script>
     export default {
-        name:'table',
+        name:'Productstable',
         data(){
             return {
                 rows: [],

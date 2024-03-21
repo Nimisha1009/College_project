@@ -171,38 +171,28 @@ const routes = [
         path: 'Dashboard',
         component: () => import('pages/management/DashboardPage.vue'),
       },
-      {
-        path: 'products/',
-        component: () => import('pages/management/ProductsPage.vue'),
-      },
+    
       {
         path: 'InsertProduct',
         component: () => import('pages/management/InsertProduct.vue'),
       },
       {
-        path: 'sellerpageform',
-        component: () => import('pages/management/sellerpageform.vue'),
+        path: 'ViewProduct',
+        component: () => import('pages/management/ViewProduct.vue'),
       },
       {
-        path: 'viewProductCategories/',
-        component: () => import('pages/management/viewProductCategories.vue'),
-      },
-      {
-        path: 'InsertProductCategory/',
-        component: () => import('pages/management/InsertProductCategory.vue'),
+        path: 'sellerform',
+        component: () => import('pages/management/sellerform.vue'),
       },
       {
         path: 'ViewCategories/',
         component: () => import('pages/management/ViewCategories.vue'),
       },
-      {
+       {
         path: 'AddCategory/',
         component: () => import('pages/management/AddCategory.vue'),
       },
-      {
-        path: 'InsertBox/',
-        component: () => import('pages/management/InsertBox.vue'),
-      },
+    
       {
         path: 'ViewCustomer/',
         component: () => import('pages/management/ViewCustomer.vue'),

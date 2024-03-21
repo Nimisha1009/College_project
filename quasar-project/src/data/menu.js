@@ -29,40 +29,45 @@ export default {
         { label: 'Transaction', url: '/seller/Transaction', icon: '' },
       ]
     },
-
-    { label: 'Invoices', url: '/seller/Invoices', icon: '' },
-    { label: 'Settlement', url: '/seller/Settlement', icon: '' },
-    { label: 'Help', url: '/seller/Help', icon: '' }
   ],
-
   management: [
     {
-      label: 'Dashboard', url: '', icon: ''
+      label: 'Dashboard', url: '/management/Dashboard', icon: ''
     },
-    {
-      label: 'Product', url: '', icon: '', subMenu: [
-        { label: 'Insert Product', url: '/management/InsertProduct', icon: '', },
-        { label: 'view Product', url: '', icon: '' }
-      ]
-    },
-    {
-      label: 'Product Categories', url: '', icon: '', subMenu: [
-        { label: 'Insert Product Categories', url: '/management/InsertProductCategory', icon: '', },
-        { label: 'view Product Categories', url: '/management/viewProductCategories', icon: '' }
-      ]
-    },
+
     {
       label: 'Categories', url: '', icon: '', subMenu: [
         { label: 'Add Categories', url: '/management/AddCategory', icon: '', },
-        { label: 'view Categories', url: '/management/ViewCategories', icon: '' }
+        { label: 'view Categories', url: '/management/viewCategories', icon: '' }
       ]
     },
     {
-      label: 'Boxes Section', url: '', icon: '', subMenu: [
-        { label: 'Insert Box', url: '/management/InsertBox', icon: '', },
-        { label: 'view Box', url: '', icon: '' }
+      label: 'Products', url: '', icon: '', subMenu: [
+        { label: 'Insert Products', url: '/management/InsertProduct', icon: '', },
+        { label: 'view Products', url: '/management/ViewProduct', icon: '' }
       ]
     },
+
+
+    {
+      label: ' Customers', url: '/management/ViewCustomer', icon: 'fas fa-user'
+    },
+    {
+      label: 'View Orders', url: '/management/ViewOrder', icon: ''
+    },
+    {
+      label: 'View Payment', url: '/management/ViewPayment', icon: ''
+    },
+    {
+      label: 'Users', url: '/management/ViewUsers', icon: ''
+
+
+
+    },
+    {
+      label: 'Seller', url: '/management/SellerForm', icon: ''
+    },
+
 
     {
       label: 'View Customer', url: '/management/ViewCustomer', icon: 'fas fa-user'

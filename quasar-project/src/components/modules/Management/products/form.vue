@@ -1,7 +1,7 @@
 <template>
- <q-form>
-     <div div class=" column ">
-      <div class="text-h6 text-center"> Add Product</div>
+  
+ <q-form class="q-pa-md shadow-2" style="width: 50%;">
+     <div class="text-h6 text-center"> Add Products</div>
       <div class="col-12 col-md-3 q-ma-sm">
         <label for="Name">Product Name</label>
         <q-input outlined v-model="formData.Product_name" />
@@ -18,16 +18,24 @@
         <label for="Name">Seller Id</label>
         <q-input outlined v-model="formData.Seller_Id" />
       </div>
-      <div class="col-12 col-md-3 q-ma-sm">
-        <label for="Name">Product Image</label>
-        <q-input outlined v-model="formData.Product_Image" />
-      </div>
+      <div class="text-center q-my-lg col-12">
+<q-uploader
+        url="http://localhost:8055/items/products"
+        label=" Upload Product Image"
+        color="blue"
+        square
+        flat
+        bordered
+        style="max-width: 300px"
+        v-model="formData.imageUrl"
+      />
+    </div>
       
       <div class="col-12 col-md-3 q-ma-sm">
         <label for="Name"> Date</label>
         <q-input type="date" outlined v-model="formData.Product_Date" />
       </div>
-<q-select emit-value :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
+<q-select outlined emit-value :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
             v-model="formData.status"></q-select>
             <div class="col-12 col-md-3 q-ma-sm">
         <label for="Name">Product- Quantity</label>
@@ -35,12 +43,12 @@
       </div> 
            <div class="col-12 col-md-3 q-ma-sm">
               <q-input label="Description" filled autogrow  v-model="formData.Description"/>
-            </div></div>
+            </div>
             <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" />
         <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go(-1)" />
           
       </q-form>
- 
+  
 </template>
 import { useQuasar } from 'quasar'
 <script>
