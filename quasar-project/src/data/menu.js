@@ -36,9 +36,15 @@ export default {
     },
 
     {
-      label: 'Categories', url: '', icon: '', subMenu: [
-        { label: 'Add Categories', url: '/management/AddCategory', icon: '', },
-        { label: 'view Categories', url: '/management/viewCategories', icon: '' }
+      label: 'Category', url: '', icon: '', subMenu: [
+        { label: 'Add Category', url: '/management/AddCategory', icon: '', },
+        { label: 'view Category', url: '/management/viewCategories', icon: '' }
+      ]
+    },
+    {
+      label: 'Product Categories', url: '', icon: '', subMenu: [
+        { label: 'Add Categories', url: '/management/InsertProductCategories', icon: '', },
+        { label: 'view Categories', url: '/management/ViewInsertCategories', icon: '' }
       ]
     },
     {

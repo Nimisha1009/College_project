@@ -5,7 +5,7 @@
         <q-btn flat dense round icon="menu" color="black" aria-label="Menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>Admin Panel</q-toolbar-title>
         <div class="row items-center ">
-          <ProfileButton class="q-mx-md">
+          <ProfileButton class="q-mx-xs">
           </ProfileButton>
         </div>
       </q-toolbar>

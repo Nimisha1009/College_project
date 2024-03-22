@@ -171,15 +171,16 @@ const routes = [
         path: 'Dashboard',
         component: () => import('pages/management/DashboardPage.vue'),
       },
+      {
+        path: 'ViewProduct',
+        component: () => import('pages/management/ViewProduct.vue'),
+      },
     
       {
         path: 'InsertProduct',
         component: () => import('pages/management/InsertProduct.vue'),
       },
-      {
-        path: 'ViewProduct',
-        component: () => import('pages/management/ViewProduct.vue'),
-      },
+     
       {
         path: 'sellerform',
         component: () => import('pages/management/sellerform.vue'),
@@ -191,6 +192,14 @@ const routes = [
        {
         path: 'AddCategory/',
         component: () => import('pages/management/AddCategory.vue'),
+      },
+      {
+        path: 'InsertProductCategories/',
+        component: () => import('pages/management/InsertProductCategories.vue'),
+      },
+      {
+        path: 'ViewInsertCategories/',
+        component: () => import('pages/management/ViewInsertCategories.vue'),
       },
     
       {

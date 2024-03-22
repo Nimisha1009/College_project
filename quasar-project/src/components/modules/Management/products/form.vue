@@ -1,27 +1,42 @@
 <template>
-  
- <q-form class="q-pa-md shadow-2" style="width: 50%;">
-     <div class="text-h6 text-center"> Add Products</div>
-      <div class="col-12 col-md-3 q-ma-sm">
-        <label for="Name">Product Name</label>
-        <q-input outlined v-model="formData.Product_name" />
-      </div>
-      <div class="col-12 col-md-3 q-ma-sm">
-        <label for="Name">Product Categories</label>
-        <q-input outlined v-model="formData.Product_Categories" />
-      </div>
-      <div class="col-12 col-md-3 q-ma-sm">
-        <label for="Name">Product Price</label>
-        <q-input outlined v-model="formData.Product_Price" />
-      </div>
-      <div class="col-12 col-md-3 q-ma-sm">
-        <label for="Name">Seller Id</label>
-        <q-input outlined v-model="formData.Seller_Id" />
-      </div>
-      <div class="text-center q-my-lg col-12">
+ <div class="container">
+   <div class="text-h5 text-center  q-my-lg "> Add Products</div>
+     </div>
+   <div class="row flex flex-center">
+   <div class="col-6">
+      <q-form class="shadow-3">
+        <div class="q-pa-md q-gutter-sm">
+    <label> Product Name</label>
+    <q-input outlined v-model="formData.Product_name" />
+   </div>
+    <div class="q-pa-md q-gutter-sm">
+    <label> Product Category</label>
+    <q-input outlined  v-model="formData.Product_Categories"/>
+   </div>
+<div class="q-pa-md q-gutter-sm">
+    <label> Categories</label>
+    <q-input outlined  v-model="formData.Categories"/>
+   
+</div>
+<div class="q-pa-md q-gutter-sm">
+  <label> Product Price</label>
+  <q-input outlined v-model="formData.Product_Price"/>
+ 
+</div>
+<div class="q-pa-md q-gutter-sm">
+  <label> Product keyword</label>
+  <q-input outlined v-model="formData.keyword"/>
+ 
+</div>
+<div class="q-pa-md q-gutter-sm">
+  <label>Product Details</label>
+  <q-input  filled autogrow  v-model="formData.Details"/>
+ 
+</div>
+<div class="row q-pa-md  flex flex-center ">
 <q-uploader
         url="http://localhost:8055/items/products"
-        label=" Upload Product Image"
+        label="Upload Product Image"
         color="blue"
         square
         flat
@@ -29,26 +44,20 @@
         style="max-width: 300px"
         v-model="formData.imageUrl"
       />
-    </div>
-      
-      <div class="col-12 col-md-3 q-ma-sm">
-        <label for="Name"> Date</label>
-        <q-input type="date" outlined v-model="formData.Product_Date" />
       </div>
-<q-select outlined emit-value :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
-            v-model="formData.status"></q-select>
-            <div class="col-12 col-md-3 q-ma-sm">
-        <label for="Name">Product- Quantity</label>
-        <q-input  outlined v-model="formData.Product_Quantity" />
-      </div> 
-           <div class="col-12 col-md-3 q-ma-sm">
-              <q-input label="Description" filled autogrow  v-model="formData.Description"/>
-            </div>
-            <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" />
-        <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go(-1)" />
-          
-      </q-form>
-  
+    
+    
+    <q-select  label="status" class="q-pa-md" outlined emit-value :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
+    v-model="formData.status"></q-select>
+    
+  <div class="row q-pa-md  flex flex-center">
+    <div class="q-pa-md">
+    <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" /></div>
+    <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go(-1)" />
+    </div>
+</q-form>
+</div>
+</div>
 </template>
 import { useQuasar } from 'quasar'
 <script>

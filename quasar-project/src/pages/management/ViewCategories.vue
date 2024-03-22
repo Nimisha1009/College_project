@@ -11,12 +11,12 @@
       },
       methods: {
           async fetchProducts(){
-           let httpClient = await this.$axios.get('http://localhost:8055/items/products_categories')
+           let httpClient = await this.$api.get('/items/category')
            this.rows = httpClient.data.data
           }
       },
       created(){
-          this.fetchProducts()
+          this.fetchcategory()
       }
   }
   

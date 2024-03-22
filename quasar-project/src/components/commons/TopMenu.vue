@@ -1,6 +1,5 @@
 <template>
-
-  <div class="row q-gutter-sm">
+<div class="row m">
     <template v-for="item of menu">
       <q-btn :outline="variant === 'outlined'" v-if="item.url" :flat="!variant" :label="item.label"
         :icon="item.icon || 'perm_identity'" :to="item.url"></q-btn>

@@ -3,19 +3,20 @@
     </template>
     <script>
     export default {
+        name:'ProductCattable',
         data(){
             return {
                 rows: [],
             }
         },
         methods: {
-            async fetchCategories(){
-             let httpClient = await this.$axios.get('http://localhost:8055/items/product_categories')
+            async fetchproductCategories(){
+             let httpClient = await this.$api.get('http://localhost:8055/items/product_categories')
              this.rows = httpClient.data.data
             }
         },
         created(){
-            this.fetchCategories()
+            this.fetchproductCategories()
         }
     }
     

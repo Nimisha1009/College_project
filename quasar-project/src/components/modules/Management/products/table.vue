@@ -11,7 +11,7 @@
         },
         methods: {
             async fetchProducts(){
-             let httpClient = await this.$axios.get('http://localhost:8055/items/products')
+             let httpClient = await this.$api.get('http://localhost:8055/items/products')
              this.rows = httpClient.data.data
             }
         },
