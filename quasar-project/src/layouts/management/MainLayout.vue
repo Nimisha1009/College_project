@@ -1,9 +1,9 @@
 <template>
   <q-layout view="hHh Lpr lff">
-    <q-header elevated class="bg-blue">
+    <q-header elevated class="bg-blue" style="height: 100px;">
       <q-toolbar>
         <q-btn flat dense round icon="menu" color="black" aria-label="Menu" @click="toggleLeftDrawer" />
-        <q-toolbar-title>Admin Panel</q-toolbar-title>
+        <q-toolbar-title class="q-pa-xs ">Admin Panel</q-toolbar-title>
         <div class="row items-center ">
           <ProfileButton class="q-mx-xs">
           </ProfileButton>

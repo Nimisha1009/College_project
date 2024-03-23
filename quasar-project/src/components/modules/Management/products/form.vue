@@ -1,10 +1,10 @@
 <template>
  <div class="container">
-   <div class="text-h5 text-center  q-my-lg "> Add Products</div>
+   <div class="text-h6 text-center  q-my-lg "> Add Products</div>
      </div>
    <div class="row flex flex-center">
    <div class="col-6">
-      <q-form class="shadow-3">
+      <q-form class="shadow-3 " >
         <div class="q-pa-md q-gutter-sm">
     <label> Product Name</label>
     <q-input outlined v-model="formData.Product_name" />

@@ -1,7 +1,6 @@
 
 <template>
-    
-  <div class="container ">
+<div class="container ">
  <div class="text-h5 text-center q-my-lg col-12">Add Category</div>
    </div>
  <div class="row flex flex-center">
