@@ -13,21 +13,13 @@
     <label> Product Category</label>
     <q-input outlined  v-model="formData.Product_Categories"/>
    </div>
-<div class="q-pa-md q-gutter-sm">
-    <label> Categories</label>
-    <q-input outlined  v-model="formData.Categories"/>
-   
-</div>
+
 <div class="q-pa-md q-gutter-sm">
   <label> Product Price</label>
   <q-input outlined v-model="formData.Product_Price"/>
  
 </div>
-<div class="q-pa-md q-gutter-sm">
-  <label> Product keyword</label>
-  <q-input outlined v-model="formData.keyword"/>
- 
-</div>
+
 <div class="q-pa-md q-gutter-sm">
   <label>Product Details</label>
   <q-input  filled autogrow  v-model="formData.Details"/>

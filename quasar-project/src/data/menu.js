@@ -41,12 +41,7 @@ export default {
         { label: 'view Category', url: '/management/viewCategories', icon: '' }
       ]
     },
-    {
-      label: 'Product Categories', url: '', icon: '', subMenu: [
-        { label: 'Add Categories', url: '/management/InsertProductCategories', icon: '', },
-        { label: 'view Categories', url: '/management/ViewInsertCategories', icon: '' }
-      ]
-    },
+   
     {
       label: 'Products', url: '', icon: '', subMenu: [
         { label: 'Insert Products', url: '/management/InsertProduct', icon: '', },

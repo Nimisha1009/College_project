@@ -193,14 +193,7 @@ const routes = [
         path: 'AddCategory/',
         component: () => import('pages/management/AddCategory.vue'),
       },
-      {
-        path: 'InsertProductCategories/',
-        component: () => import('pages/management/InsertProductCategories.vue'),
-      },
-      {
-        path: 'ViewInsertCategories/',
-        component: () => import('pages/management/ViewInsertCategories.vue'),
-      },
+    
     
       {
         path: 'ViewCustomer/',

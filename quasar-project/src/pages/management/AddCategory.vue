@@ -18,7 +18,7 @@
 </div>
 <div class="row q-pa-md  flex flex-center ">
 <q-uploader
-      url="http://localhost:8055/items/category"
+      url="http://localhost:8055/items/product_categories"
       label="Category Image"
       color="blue"
       square
@@ -49,16 +49,16 @@ export default{
       };
   }, methods: {
       async submit() {
-          let httpClient = await this.$axios.post('http://localhost:8055/items/category', this.formData)
+          let httpClient = await this.$axios.post('http://localhost:8055/items/product_categories', this.formData)
           
           this.$q.dialog({
               title: 'Successfull',
               message: 'Data Submitted'
        
-        //  }).onCancel(() => {
+         }).onCancel(() => {
               // console.log('Cancel')
-        //  }).onDismiss(() => {
-        //      this.$router.go(-1)
+         }).onDismiss(() => {
+            this.$router.go(-1)
       })
 
       }
