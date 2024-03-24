@@ -45,7 +45,7 @@
   <div class="row q-pa-md  flex flex-center">
     <div class="q-pa-md">
     <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" /></div>
-    <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go(-1)" />
+    <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go()" />
     </div>
 </q-form>
 </div>
@@ -57,11 +57,42 @@ export default{
   name:'ProductForm',
   data(){
  return{
-  formData: {}
+  formData: {},
+  products: {
+        option: [],
+        loading: false,
+        error: false
+      }
+
  }
   },
   methods: {
-        async submit() {
+    async fetchproducts () {
+      this.products.loading = true
+      try {
+        this.products.loadingAttempt++
+        let httpClient = await this.$api.get('/items/products')
+        this.products.loadingAttempt = 0
+        this.products.error = false
+        this.products.options = httpClient?.data?.data
+      } catch (err) {
+        if (this.products.loadingAttempt <= 5) {
+          // this.department.error = 'Please wait loading options'
+          setTimeout(this.fetchcategoryOptions, 1000)
+
+        } else {
+          this.products.error = 'Failed to load options'
+
+        }
+
+      }
+      if (!!!this.products.error || (!!this.products.error && this.products.loadingAttempt > 5)) {
+        this.products.loading = false
+      }
+
+
+    },
+async submit() {
             let httpClient = await this.$axios.post('http://localhost:8055/items/products', this.formData)
             
             this.$q.dialog({
@@ -70,13 +101,15 @@ export default{
             }).onOk(() => {
                 this.$router.go(-1)
             }).onCancel(() => {
-                // console.log('Cancel')
+                 console.log('Cancel')
             }).onDismiss(() => {
                 this.$router.go(-1)
             })
 
         }
-    }
-
+    },
+    created () {
+    this.fetchproducts()
+  }
 }
 </script>

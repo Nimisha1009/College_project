@@ -8,7 +8,7 @@
     <q-form class="shadow-2">
       <div class="full-width column q-gutter-sm">
   <label> Categories Name</label>
-  <q-input outlined v-model="formData.category_name" />
+  <q-input outlined v-model="formData.products_category_name" />
 
   </div>
   <div class="full-width column q-gutter-sm">
@@ -18,7 +18,7 @@
 </div>
 <div class="row q-pa-md  flex flex-center ">
 <q-uploader
-      url="http://localhost:8055/items/product_categories"
+      url="http://localhost:8055/items/products_categories"
       label="Category Image"
       color="blue"
       square
@@ -45,23 +45,59 @@ export default{
   name:'AddCategory',
   data(){
       return{
-          formData: {}
-      };
-  }, methods: {
+          formData: {},
+          products_cateories: {
+        option: [],
+        loading: false,
+        error: false
+      }
+    }
+      
+  }, 
+  methods: {
+    async fetchproducts_categories() {
+      this.products_categories.loading = true
+      try {
+        this.products_categories.loadingAttempt++
+        let httpClient = await this.$api.get('/items/products')
+        this.products_categories.loadingAttempt = 0
+        this.products_categories.error = false
+        this.products_categories.options = httpClient?.data?.data
+      } catch (err) {
+        if (this.products_categories.loadingAttempt <= 5) {
+          // this.department.error = 'Please wait loading options'
+          setTimeout(this.fetchcategoryOptions, 1000)
+
+        } else {
+          this.products_categories.error = 'Failed to load options'
+
+        }
+
+      }
+      if (!!!this.products_categories.error || (!!this.products_categories.error && this.products_categories.loadingAttempt > 5)) {
+        this.products_categories.loading = false
+      }
+
+
+    },
       async submit() {
-          let httpClient = await this.$axios.post('http://localhost:8055/items/product_categories', this.formData)
+          let httpClient = await this.$axios.post('http://localhost:8055/items/products_categories', this.formData)
           
           this.$q.dialog({
               title: 'Successfull',
               message: 'Data Submitted'
-       
+            }).onOk(() => {
+                this.$router.go(-1)
          }).onCancel(() => {
-              // console.log('Cancel')
+             console.log('Cancel')
          }).onDismiss(() => {
-            this.$router.go(-1)
+             this.$router.go(-1)
       })
 
       }
+  },
+  created () {
+    this.fetchproducts_categories()
   }
 
 }
