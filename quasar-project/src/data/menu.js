@@ -41,11 +41,11 @@ export default {
         { label: 'view Category', url: '/management/viewCategories', icon: '' }
       ]
     },
-   
+
     {
       label: 'Products', url: '', icon: '', subMenu: [
-        { label: 'Insert Products', url: '/management/InsertProduct', icon: '', },
-        { label: 'view Products', url: '/management/ViewProduct', icon: '' }
+        { label: 'Insert Products', url: '/management/products/add', icon: '', },
+        { label: 'view Products', url: '/management/products/', icon: '' }
       ]
     },
 
