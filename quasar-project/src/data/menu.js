@@ -37,14 +37,14 @@ export default {
 
     {
       label: 'Category', url: '', icon: '', subMenu: [
-        { label: 'Add Category', url: '/management/AddCategory', icon: '', },
-        { label: 'view Category', url: '/management/viewCategories', icon: '' }
+        { label: 'Add Category', url: '/management/category/add', icon: '', },
+        { label: 'view Category', url: '/management/category/', icon: '' }
       ]
     },
 
     {
       label: 'Products', url: '', icon: '', subMenu: [
-        { label: 'Insert Products', url: '/management/products/add', icon: '', },
+        { label: 'Add Products', url: '/management/products/add', icon: '', },
         { label: 'view Products', url: '/management/products/', icon: '' }
       ]
     },

@@ -176,6 +176,11 @@ const routes = [
         component: () => import('pages/management/Product.vue'),
         props: true
       },
+      {
+        path: 'category/:mode?/:id?',
+        component: () => import('pages/management/Category.vue'),
+        props: true
+      },
 
 
 
@@ -183,14 +188,7 @@ const routes = [
         path: 'sellerform',
         component: () => import('pages/management/sellerform.vue'),
       },
-      {
-        path: 'ViewCategories/',
-        component: () => import('pages/management/ViewCategories.vue'),
-      },
-      {
-        path: 'AddCategory/',
-        component: () => import('pages/management/AddCategory.vue'),
-      },
+     
 
 
       {
