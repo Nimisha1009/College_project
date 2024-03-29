@@ -1,4 +1,5 @@
 <template>
+      <q-form ref="form" class="q-gutter-md" :class="{ 'bg-amber-1': mode === 'edit' }"></q-form>
     <div class="container ">
      <div class="text-h5 text-center q-my-lg col-12">Add Category</div>
        </div>
@@ -7,7 +8,7 @@
         <q-form class="shadow-2">
           <div class="full-width column q-gutter-sm">
       <label> Categories Name</label>
-      <q-input outlined v-model="formData.products_category_name" />
+      <q-input  ref="categories_name_input"  outlined v-model="formData.categories_name" :disable="mode === 'edit'" />
     
       </div>
       <div class="full-width column q-gutter-sm">
@@ -23,9 +24,11 @@
           v-model="formData.imageUrl"
         />
       </div>
-    <div class="row q-pa-md  flex flex-center">
-      <div class="q-pa-md">
-      <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" /></div>
+    <div  ref="div" class="row  q-gutter-sm  ">
+      <div >
+      <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" unelevated  :loading="formSubmitting"    v-if="mode === 'add'"/></div>
+      <q-btn label="Update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
+        :disable="formSubmitting" v-if="mode === 'edit'"></q-btn>
       <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go()" />
       </div>
     </q-form>
@@ -38,63 +41,71 @@
     
     export default{
       name:'CategoryForm',
+      props: ['mode', 'id'],
       data(){
           return{
-              formData: {},
-              categories: {
-            option: [],
-            loading: false,
-            error: false
-          }
-        }
-          
-      }, 
+            formData: {},
+        formSubmitting: false,
+        formError: false,
+        status: {
+        loading: false,
+        error: false,
+        }}
+          }, 
       methods: {
-        async fetchcategories() {
-          this.categories.loading = true
-          try {
-            this.categories.loadingAttempt++
-            let httpClient = await this.$api.get('/items/products')
-            this.categories.loadingAttempt = 0
-            this.categories.error = false
-            this.categories.options = httpClient?.data?.data
-          } catch (err) {
-            if (this.categories.loadingAttempt <= 5) {
-              // this.department.error = 'Please wait loading options'
-              setTimeout(this.fetchcategoriesOptions, 1000)
-    
-            } else {
-              this.categories.error = 'Failed to load options'
-    
-            }
-    
-          }
-          if (!!!this.categories.error || (!!this.categories.error && this.categories.loadingAttempt > 5)) {
-            this.categories.loading = false
-          }
-    
-    
-        },
-          async submit() {
-              let httpClient = await this.$axios.post('http://localhost:8055/items/categories', this.formData)
-              
-              this.$q.dialog({
-                  title: 'Successfull',
-                  message: 'Data Submitted'
-                }).onOk(() => {
-                    this.$router.go(-1)
-             }).onCancel(() => {
-                 console.log('Cancel')
-             }).onDismiss(() => {
-                 this.$router.go(-1)
-          })
-    
-          }
-      },
-      created () {
-        this.fetchcategories()
+         async submit () {
+      let valid = await this.$refs.form.validate()
+      if (!valid) {
+        return
       }
-    
+      this.formSubmitting = true
+      try {
+        let httpClient = await this.$api.post('items/categories', this.formData)
+        this.formSubmitting = false
+        this.formData = {}
+        this.$mitt.emit('module-data-changed:categories')
+        this.$q.dialog({
+          message: 'Data Submitted Successfully'
+        })
+        this.$refs.categories_name_input.$el.focus()
+      } catch (err) {
+        this.formSubmitting = false
+        this.$q.dialog({
+          message: 'Form Submission failed'
+        })
+      }
+    },
+    async updateForm () {
+      let valid = await this.$refs.form.validate()
+      if (!valid) {
+        return
+      }
+      this.formSubmitting = true
+      try {
+        let httpClient = await this.$api.patch('items/categories/' + this.formData.id, this.formData)
+        this.formSubmitting = false
+        this.formData = {}
+        this.$mitt.emit('module-data-changed:categories')
+        this.$q.dialog({
+          message: 'Data Updated Successfully'
+        })
+        this.$refs.skill_name_input.$el.focus()
+      } catch (err) {
+        this.formSubmitting = false
+        this.$q.dialog({
+          message: 'Data Updation failed'
+        } ) 
+      }
+    },
+    async fetchData () {
+      let httpClient = await this.$api.get('items/categories/' + this.id)
+      this.formData = httpClient.data.data
     }
+  },
+  created () {
+  this.fetchData()
+     }
+}
+    
     
     </script>

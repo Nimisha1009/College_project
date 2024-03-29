@@ -27,8 +27,8 @@
             }
         },
         methods: {
-            async fetchProducts(){
-             let httpClient = await this.$api.get('http://localhost:8055/items/products')
+            async fetchData(){
+             let httpClient = await this.$api.get('/items/products')
              this.rows = httpClient.data.data
             },
             async deleteData (id) {
@@ -45,7 +45,7 @@
         },
         created(){
             this.$mitt.on('module-data-changed:products', this.fetchData)
-            this.fetchProducts()
+            this.fetchData()
         }
     }
     

@@ -1,13 +1,20 @@
 <template>
-    <q-table :rows="rows" :columns="columns">
-   <template v-slot:body-cell-actionControl="props">
-     <q-td>
-       <q-btn icon="edit" :to="'./edit/' + props.row.id" unelevated color="amber" dense></q-btn>
-       <q-btn icon="delete" @click="deleteData(props.row.id)" unelevated color="red" dense></q-btn>
-     </q-td>
+     <q-table :rows="rows" :columns="columns">
+    <template v-slot:top>
+      <div class="row items-center">
+        <div class="text-h5 q-ma-sm">categories</div>
+        <q-btn label="Add" color="green" rounded class="q-ma-sm" to="./add" v-if="!$route.params.mode"></q-btn>
+      </div>
+    </template>
+    <template v-slot:body-cell-actionControl="props">
+      <q-td>
+        <q-btn icon="edit" :to="'./edit/' + props.row.id" unelevated color="amber" dense></q-btn>
+        <q-btn icon="delete" @click="deleteData(props.row.id)" unelevated color="red" dense></q-btn>
+      </q-td>
 
-   </template>
- </q-table>
+    </template>
+  </q-table>
+   
    </template>
    <script>
    export default {
@@ -24,8 +31,8 @@
            }
        },
        methods: {
-           async fetchcategories(){
-            let httpClient = await this.$api.get('http://localhost:8055/items/categories')
+           async fetchData(){
+            let httpClient = await this.$api.get('/items/categories')
             this.rows = httpClient.data.data
            },
            async deleteData (id) {
@@ -42,7 +49,7 @@
        },
        created(){
            this.$mitt.on('module-data-changed:categories', this.fetchData)
-           this.fetchcategories()
+           this.fetchData()
        }
    }
    

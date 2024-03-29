@@ -10,8 +10,8 @@
           <q-input outlined v-model="formData.name" />
         </div>
         <div class="q-pa-md q-gutter-sm">
-          <label> Product Category</label>
-          <q-input outlined v-model="formData.Product_Categories" />
+          <q-select outlined label="categories" :options="categories.options" option-value="id" option-label="name"
+        map-options emit-value v-model="formData.categories_id"></q-select>
         </div>
 
         <div class="q-pa-md q-gutter-sm">
@@ -49,6 +49,7 @@ import { useQuasar } from 'quasar'
 <script>
 export default {
   name: 'ProductForm',
+  props:['mode','id'],
   data () {
     return {
       formData: {},
@@ -61,33 +62,33 @@ export default {
     }
   },
   methods: {
-    async fetchproducts () {
-      this.products.loading = true
+    async fetchcategoriesOptions () {
+      this.categories.loading = true
       try {
-        this.products.loadingAttempt++
-        let httpClient = await this.$api.get('/items/products')
-        this.products.loadingAttempt = 0
-        this.products.error = false
-        this.products.options = httpClient?.data?.data
+        this.categories.loadingAttempt++
+        let httpClient = await this.$api.get('/items/categories/name')
+        this.categories.loadingAttempt = 0
+        this.categories.error = false
+        this.categories.options = httpClient?.data?.data?.meta?.options?.choices
       } catch (err) {
-        if (this.products.loadingAttempt <= 5) {
+        if (this.categories.loadingAttempt <= 5) {
           // this.department.error = 'Please wait loading options'
-          setTimeout(this.fetchcategoryOptions, 1000)
+          setTimeout(this.fetchcategoriesOptions, 1000)
 
         } else {
-          this.products.error = 'Failed to load options'
+          this.categories.error = 'Failed to load options'
 
         }
 
       }
-      if (!!!this.products.error || (!!this.products.error && this.products.loadingAttempt > 5)) {
-        this.products.loading = false
+      if (!!!this.categories.error || (!!this.categories.error && this.categories.loadingAttempt > 5)) {
+        this.categories.loading = false
       }
 
 
     },
     async submit () {
-      let httpClient = await this.$axios.post('http://localhost:8055/items/products', this.formData)
+      let httpClient = await this.$api.post('/items/products', this.formData)
 
       this.$q.dialog({
         title: 'Successfull',
@@ -102,8 +103,11 @@ export default {
 
     }
   },
-  created () {
-    this.fetchproducts()
+  created () 
+  { this.fetchSkillOptions()
+    if (this.mode === 'edit') {
+      this.fetchData()
+    }
   }
 }
 </script>
