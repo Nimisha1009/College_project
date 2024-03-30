@@ -29,9 +29,9 @@
        { label: 'status', field: 'status', name:'status' , align:''},
        { label: 'Gender', field: 'gender', name:'gender' , align:''},
        { label: 'AdhaarNumber', field: 'adhaar_number', name:'adhaar_number' , align:''},
-       { label: 'Adress', field: 'address', name:'adress' , align:''},
+       { label: 'Address', field: 'address', name:'address' , align:''},
        { label: 'Website name', field: 'website_name', name:'website_name' , align:''},
-       { label: 'Website Url', field: 'website_url', name:'website_name' , align:''},
+       { label: 'Website Url', field: 'website_url', name:'website_url' , align:''},
        { label: 'Action', field: '', name: 'actionControl' },
      ]
            }
