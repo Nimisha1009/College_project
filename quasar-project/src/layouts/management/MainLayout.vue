@@ -9,9 +9,9 @@
           </ProfileButton>
         </div>
       </q-toolbar>
-      <TopMenu :menu="menu.management" />
-      <q-toolbar>
 
+      <q-toolbar class="bg-white">
+        <TopMenu :menu="menu.management" class="text-grey-8" />
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -47,8 +47,3 @@ export default {
   },
 }
 </script>
-<style>
-.row {
-  color: black;
-}
-</style>

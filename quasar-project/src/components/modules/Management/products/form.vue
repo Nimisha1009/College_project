@@ -10,9 +10,8 @@
           <q-input outlined v-model="formData.name" />
         </div>
         <div class="q-pa-md q-gutter-sm">
-          <q-select outlined label="categories" 
-      :options="categories.options" option-value="id" option-label="name"
-        map-options emit-value v-model="formData.categories_id"></q-select>
+          <q-select outlined label="categories" :options="categories.options" option-value="id" option-label="name"
+            map-options emit-value v-model="formData.categories_id"></q-select>
         </div>
 
         <div class="q-pa-md q-gutter-sm">
@@ -38,10 +37,10 @@
 
         <div class="row q-pa-md  flex flex-center">
           <div class="q-pa-md">
-            <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" v-if="mode==='add'" />
+            <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" v-if="mode === 'add'" />
           </div>
-          <q-btn label="update" color="amber"unelevated @click="updateForm" :loading="formSubmitting"
-          :disable="formSubmitting" v-if="mode === 'edit'"></q-btn>
+          <q-btn label="update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
+            :disable="formSubmitting" v-if="mode === 'edit'"></q-btn>
           <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go()" />
         </div>
       </q-form>
@@ -52,20 +51,21 @@ import { useQuasar } from 'quasar'
 <script>
 export default {
   name: 'ProductForm',
-  props:['mode','id'],
+  props: ['mode', 'id'],
   data () {
     return {
       formData: {},
       categories: {
-        option: [],
+        options: [],
         loading: false,
-        error: false
+        error: false,
+        loadingAttempt: 0
       },
       status: {
-       loading: false,
+        loading: false,
         error: false,
         options: [],
-       loadingAttempt: 0
+        loadingAttempt: 0
       }
 
     }
@@ -75,10 +75,10 @@ export default {
       this.categories.loading = true
       try {
         this.categories.loadingAttempt++
-        let httpClient = await this.$api.get('/items/categories/name')
+        let httpClient = await this.$api.get('/items/categories')
         this.categories.loadingAttempt = 0
         this.categories.error = false
-        this.categories.options = httpClient?.data?.data?.meta?.options?.choices
+        this.categories.options = httpClient?.data?.data
       } catch (err) {
         if (this.categories.loadingAttempt <= 5) {
           // this.department.error = 'Please wait loading options'
@@ -97,63 +97,62 @@ export default {
 
     },
     async submit () {
-    let valid =await this.$refs.form.validate()
-      if(!valid){
+      let valid = await this.$refs.form.validate()
+      if (!valid) {
         return
       }
       this.formSubmitting = true
-      try{
+      try {
         let httpClient = await this.$api.post('/items/products', this.formData)
         this.formSubmitting = false
         this.formData = {}
         this.$mitt.emit('module-data-changed:products')
         this.$router.go(-1)
         this.$q.dialog({
-        title: 'Successfull',
-      
-        
-        
-   
-      })
-      this.$ref.name_input.$el.focus()
-    } catch (err) {
+          title: 'Successfull',
+
+
+
+
+        })
+        this.$ref.name_input.$el.focus()
+      } catch (err) {
         this.formSubmitting = false
         this.$q.dialog({
           message: 'Form Submission failed'
         })
-      } 
-      },
-      async updateForm (){
+      }
+    },
+    async updateForm () {
       let valid = await this.$refs.form.validate()
-      if (!valid){ 
+      if (!valid) {
         return
-    }
-    this.formSubmitting = true
-    try{
-      let httpClient = await this.$api.patch('items/products/' + this.formData.id, this.formData)
-      this.formSubmitting = false
-      this.formData = {}
-      this.$mitt.emit('module-data-changed:products')
-      this.$q.dialog({
-        message:'Data Update Successfully'
-      })
-      
-      this.$ref.email_input.$el.focus()
-    } catch (err){
-      this.formSubmitting =false
-      this.$q.dialog({
-        message: 'Data Updation Failed'
-      })
+      }
+      this.formSubmitting = true
+      try {
+        let httpClient = await this.$api.patch('items/products/' + this.formData.id, this.formData)
+        this.formSubmitting = false
+        this.formData = {}
+        this.$mitt.emit('module-data-changed:products')
+        this.$q.dialog({
+          message: 'Data Update Successfully'
+        })
+
+        this.$ref.email_input.$el.focus()
+      } catch (err) {
+        this.formSubmitting = false
+        this.$q.dialog({
+          message: 'Data Updation Failed'
+        })
+      }
+    },
+    async fetchData () {
+      let httpClient = await this.$api.get('items/products/' + this.id)
+      this.formData = httpClient.data.data
     }
   },
-  async fetchData () {
-    let httpClient = await this.$api.get('items/products/'+this.id)
-    this.formData = httpClient.data.data
-  }
-  },
-  created () 
-  {
-     this.fetchcategoriesOptions()
+  created () {
+    this.fetchcategoriesOptions()
     if (this.mode === 'edit') {
       this.fetchData()
     }

@@ -22,7 +22,7 @@ import SellerProductTable from 'components/modules/products/SellerTable.vue'
 export default {
   name: 'ProductPage',
   components: { SellerProductTable },
-  props: ['mode'],
+  props: ['mode', 'id'],
 
 }
 
