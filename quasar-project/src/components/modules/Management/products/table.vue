@@ -18,11 +18,12 @@
                 columns: [
         { label: 'ID', field: 'id', name: 'id', align: 'left' },
         { label: ' product name', field: 'name', name: 'name', align: 'left' },
-        { label: 'product category', field: 'product category', name: '' },
-        { label: 'product price', field: 'product price', name: '' },
-        { label: 'product Details', field: 'product details', name: 'left' },
-        { label: 'product Image', field: 'product Image', name: 'left' },
-        { label: 'product status', field: 'product status', name: 'actionControl' },
+        { label: 'product category', field: 'product category', name: '', align:'' },
+        { label: 'product price', field: 'product price', name: '', align:'' },
+        { label: 'product Details', field: 'product details', name:'',  align:'' },
+        { label: 'product Image', field: 'product Image', name:'',  align:'' },
+        { label: 'product status', field: 'product status', name:'' , align:''},
+        { label: 'Action', field: '', name: 'actionControl' },
       ]
             }
         },

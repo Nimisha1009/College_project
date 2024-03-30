@@ -1,7 +1,7 @@
 <template>
   <q-page>
     {{ $route.params }}
-    <ProductForm v-if="['add', 'edit'].includes(mode)" />
+    <ProductForm v-if="['add', 'edit'].includes(mode,)" />
     <Productstable v-if="!mode" />
 
   </q-page>
