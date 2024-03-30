@@ -181,14 +181,13 @@ const routes = [
         component: () => import('pages/management/Category.vue'),
         props: true
       },
-
-
-
       {
-        path: 'sellerform',
+        path: 'seller/:mode?/:id?',
         component: () => import('pages/management/sellerform.vue'),
+        props: true
       },
      
+      
 
 
       {

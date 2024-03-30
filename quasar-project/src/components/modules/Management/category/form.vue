@@ -60,22 +60,18 @@ export default {
       status: {
         loading: false,
         error: false,
-      },
-      status: {
-        loading: false,
-        error: false,
         options: [],
         loadingAttempt: 0
+      },
       }
-    }
   },
   methods: {
     async submit () {
       let valid = await this.$refs.form.validate()
       if (!valid) {
-        return
+        return;
       }
-      this.formSubmitting = true
+      this.formSubmitting = true;
       try {
         let httpClient = await this.$api.post('items/categories', this.formData)
         this.formSubmitting = false
@@ -84,7 +80,7 @@ export default {
         this.$q.dialog({
           message: 'Data Submitted Successfully'
         })
-        this.$refs.categories_name_input.$el.focus()
+        this.$refs.name_input.$el.focus()
       } catch (err) {
         this.formSubmitting = false
         this.$q.dialog({
@@ -95,7 +91,7 @@ export default {
     async updateForm () {
       let valid = await this.$refs.form.validate()
       if (!valid) {
-        return
+        return;
       }
       this.formSubmitting = true
       try {

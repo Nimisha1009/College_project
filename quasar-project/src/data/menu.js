@@ -66,7 +66,10 @@ export default {
 
     },
     {
-      label: 'Seller', url: '/management/SellerForm', icon: ''
+      label: 'Seller', url: '', icon: '', subMenu: [
+        { label: 'Add Sellers', url: '/management/seller/add', icon: '', },
+        { label: 'view Seller', url: '/management/seller/', icon: '' }
+      ]
     },
 
 

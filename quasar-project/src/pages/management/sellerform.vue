@@ -1,9 +1,29 @@
+
 <template>
-    <sellersForm />
-    </template>
-    <script>
-    import sellersForm from 'components/modules/sellers/form.vue'
-    export default {
-        components: {sellersForm}
-    }
-    </script>
+    <q-page class="bg-grey-3">
+      <div class="row" v-if="mode === 'detail'">
+       details
+      </div>
+      <div class="column" v-else>
+        <q-card v-if="['add', 'edit'].includes(mode)" class="q-ma-md self-center">
+          <SellerForm :mode="mode" :id="id" />
+        </q-card>
+        <SellerTable class="col q-ma-md" v-if="!mode" />
+      </div>
+  
+ </q-page>
+  
+  
+  
+  </template>
+  <script>
+  import SellerForm from 'components/modules/Management/seller/form.vue'
+  import  SellerTable from 'components/modules/Management/seller/table.vue'
+  
+  
+  export default {
+    props: ['mode', 'id'],
+    components: { SellerForm ,SellerTable  }
+  }
+  </script>
+  
