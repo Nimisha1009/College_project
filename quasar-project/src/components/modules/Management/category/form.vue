@@ -1,11 +1,11 @@
 <template>
-  <q-form class="q-pa-sm" :class="{ 'bg-amber-1': mode === 'edit' }">
+  <q-form ref="form" class="q-pa-sm" :class="{ 'bg-amber-1': mode === 'edit' }">
     <div clsss="row">
       <div class="text-h5 text-center q-my-lg col-12">Add Category</div>
     </div>
     <div class="column q-ma-sm">
       <label class="q-my-xs text-grey-8 text-bold"> Name</label>
-      <q-input ref="categories_name_input" outlined v-model="formData.name" :disable="mode === 'edit'" />
+      <q-input ref="name_input" outlined v-model="formData.name" disable="formSubmitting || mode === 'edit'"/>
 
     </div>
     <div class="column q-ma-sm">
@@ -27,7 +27,7 @@
           :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
           v-model="formData.status"></q-select>
           </div>
-     <div class="row q-mx-sm q-my-lg">
+     <div  ref="div" class="row q-mx-sm q-my-lg">
       <div>
         <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
           v-if="mode === 'add'" />
@@ -106,7 +106,7 @@ export default {
         this.$q.dialog({
           message: 'Data Updated Successfully'
         })
-        this.$refs.skill_name_input.$el.focus()
+        this.$refs.name_input.$el.focus()
       } catch (err) {
         this.formSubmitting = false
         this.$q.dialog({

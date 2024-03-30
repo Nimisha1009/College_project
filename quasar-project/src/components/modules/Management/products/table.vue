@@ -23,12 +23,12 @@
                 rows: [],
                 columns: [
         { label: 'ID', field: 'id', name: 'id', align: 'left' },
-        { label: ' product name', field: 'name', name: 'name', align: 'left' },
-        { label: 'product category', field: 'product category', name: '', align:'' },
-        { label: 'product price', field: 'product price', name: '', align:'' },
-        { label: 'product Details', field: 'product details', name:'',  align:'' },
-        { label: 'product Image', field: 'product Image', name:'',  align:'' },
-        { label: 'product status', field: 'product status', name:'' , align:''},
+        { label: 'Product name', field: 'name', name: 'name', align: 'left' },
+        { label: 'category', field: 'categories_id', name: 'categories_id', align:'' },
+        { label: 'Price', field: 'price', name: 'price', align:'' },
+        { label: 'Description', field: 'description', name:'description',  align:'' },
+        { label: 'product Image', field: 'image', name:'image',  align:'' },
+        { label: 'product status', field: 'status', name:'status' , align:''},
         { label: 'Action', field: '', name: 'actionControl' },
       ]
             }

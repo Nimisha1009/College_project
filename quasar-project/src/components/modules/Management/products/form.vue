@@ -1,19 +1,19 @@
 <template>
-  <q-form class="q-pa-sm" :class="{ 'bg-amber-1': mode === 'edit' }">
+  <q-form ref="form" class="q-pa-sm" :class="{ 'bg-amber-1': mode === 'edit' }">
     <div clsss="row">
       <div class="text-h5 text-center q-my-lg col-12">Add product</div>
     </div>
     <div class="column q-ma-sm">
       <label class="q-my-xs text-grey-8 text-bold">Product name</label>
-      <q-input ref="products_name_input" outlined v-model="formData.name" :disable="mode === 'edit'" />
+      <q-input ref="name_input" outlined v-model="formData.name" disable="formSubmitting || mode === 'edit'" />
     </div>
         <div class="column q-ma-sm">
-          <q-select outlined label="categories" :options="categories.options" option-value="id" option-label="name"
+          <q-select outlined label="categories"  use-input @filter="filtercategories" :options="categories.options" option-value="id" option-label="name"
             map-options emit-value v-model="formData.categories_id"></q-select>
         </div>
 
         <div class="column q-ma-sm">
-          <label> Product Price</label>
+          <label> Price</label>
           <q-input outlined v-model="formData.price" />
 
         </div>
@@ -31,10 +31,10 @@
           :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
           v-model="formData.status"></q-select>
 
-          <div class="row q-mx-sm q-my-lg">
-      <div>
+          <div ref="div"  class="row q-mx-sm q-my-lg">
+      <div >
         <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
-          v-if="mode === 'add'" />
+        v-if="mode === 'add'" />
       </div>
       <div>
         <q-btn label="Update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
@@ -59,6 +59,7 @@ export default {
       formSubmitting: false,
       formError: false,
       categories: {
+        searchText: '',
         options: [],
         loading: false,
         error: false,
@@ -74,10 +75,29 @@ export default {
     }
   },
   methods: {
+    async filtercategories (inputValue, doneFn, abortFn) {
+      this.categories.searchText = inputValue
+      await this.fetchcategories()
+      doneFn()
+      console.log(inputValue)
+    },
     async fetchcategoriesOptions () {
       this.categories.loading = true
       try {
         this.categories.loadingAttempt++
+        let params = {
+          fields: [
+            '*',
+            'categories_id.*'
+          ]
+        }
+        if (this.categories.searchText) {
+          params.filter = {
+            name: {
+              _contains: this.categories.searchText
+            }
+          }
+        }
         let httpClient = await this.$api.get('/items/categories')
         this.categories.loadingAttempt = 0
         this.categories.error = false
@@ -99,32 +119,32 @@ export default {
 
 
     },
-    async submit () {
-      let valid = await this.$refs.form.validate()
+    async submit() {
+      let valid = await this.$refs.form.validate();
       if (!valid) {
         return
       }
-      this.formSubmitting = true
+      this.formSubmitting = true;
       try {
-        let httpClient = await this.$api.post('/items/products', this.formData)
+     let httpClient = await this.$api.post('/items/products', this.formData)
         this.formSubmitting = false
         this.formData = {}
         this.$mitt.emit('module-data-changed:products')
         this.$router.go(-1)
         this.$q.dialog({
           title: 'Successfull',
+          message: 'Data Submitted'
+        });
+        this.$refs.name_input.$el.focus()
 
-
-
-
-        })
-        this.$ref.name_input.$el.focus()
       } catch (err) {
+        console.log(err)
         this.formSubmitting = false
         this.$q.dialog({
           message: 'Form Submission failed'
         })
       }
+
     },
     async updateForm () {
       let valid = await this.$refs.form.validate()
@@ -141,7 +161,7 @@ export default {
           message: 'Data Update Successfully'
         })
 
-        this.$ref.email_input.$el.focus()
+        this.$refs.name_input.$el.focus()
       } catch (err) {
         this.formSubmitting = false
         this.$q.dialog({
@@ -150,8 +170,8 @@ export default {
       }
     },
     async fetchData () {
-      let httpClient = await this.$api.get('items/products/' + this.id)
-      this.formData = httpClient.data.data
+      let httpClient = await this.$api.get('items/products/' + this.id);
+      this.formData = httpClient.data.data;
     }
   },
   created () {
