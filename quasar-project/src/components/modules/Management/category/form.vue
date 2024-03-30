@@ -20,9 +20,14 @@
     </div>
     <div class="column q-ma-sm ">
       <q-uploader url="http://localhost:8055/items/categories" label="Category Image" color="blue" square flat bordered
-        style="max-width: 300px" v-model="formData.imageUrl" />
+        style="max-width: 300px" v-model="formData.Image" />
     </div>
-    <div class="row q-mx-sm q-my-lg">
+    <div class="column q-ma-sm ">
+    <q-select label="status" class="column q-ma-sm " outlined emit-value
+          :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
+          v-model="formData.status"></q-select>
+          </div>
+     <div class="row q-mx-sm q-my-lg">
       <div>
         <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
           v-if="mode === 'add'" />
@@ -55,6 +60,12 @@ export default {
       status: {
         loading: false,
         error: false,
+      },
+      status: {
+        loading: false,
+        error: false,
+        options: [],
+        loadingAttempt: 0
       }
     }
   },

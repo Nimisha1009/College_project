@@ -1,51 +1,52 @@
 <template>
-  <div class="container">
-    <div class="text-h6 text-center  q-my-lg "> Add Products</div>
-  </div>
-  <div class="row flex flex-center">
-    <div class="col-6">
-      <q-form class="shadow-3 ">
-        <div class="q-pa-md q-gutter-sm">
-          <label> Product Name</label>
-          <q-input outlined v-model="formData.name" />
-        </div>
-        <div class="q-pa-md q-gutter-sm">
+  <q-form class="q-pa-sm" :class="{ 'bg-amber-1': mode === 'edit' }">
+    <div clsss="row">
+      <div class="text-h5 text-center q-my-lg col-12">Add product</div>
+    </div>
+    <div class="column q-ma-sm">
+      <label class="q-my-xs text-grey-8 text-bold">Product name</label>
+      <q-input ref="products_name_input" outlined v-model="formData.name" :disable="mode === 'edit'" />
+    </div>
+        <div class="column q-ma-sm">
           <q-select outlined label="categories" :options="categories.options" option-value="id" option-label="name"
             map-options emit-value v-model="formData.categories_id"></q-select>
         </div>
 
-        <div class="q-pa-md q-gutter-sm">
+        <div class="column q-ma-sm">
           <label> Product Price</label>
-          <q-input outlined v-model="formData.Product_Price" />
+          <q-input outlined v-model="formData.price" />
 
         </div>
 
-        <div class="q-pa-md q-gutter-sm">
-          <label>Product Details</label>
-          <q-input filled autogrow v-model="formData.Details" />
+        <div class="column q-ma-sm">
+          <label>Description</label>
+          <q-input outlined autogrow v-model="formData.description" />
 
         </div>
-        <div class="row q-pa-md  flex flex-center ">
+        <div class="column q-ma-sm ">
           <q-uploader url="http://localhost:8055/items/products" label="Upload Product Image" color="blue" square flat
-            bordered style="max-width: 300px" v-model="formData.imageUrl" />
+            bordered style="max-width: 300px" v-model="formData.image" />
         </div>
-
-
-        <q-select label="status" class="q-pa-md" outlined emit-value
+         <q-select label="status" class="q-pa-md" outlined emit-value
           :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
           v-model="formData.status"></q-select>
 
-        <div class="row q-pa-md  flex flex-center">
-          <div class="q-pa-md">
-            <q-btn type="button" class="q-my-lg" label="Submit" color="primary" @click="submit" v-if="mode === 'add'" />
-          </div>
-          <q-btn label="update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
-            :disable="formSubmitting" v-if="mode === 'edit'"></q-btn>
-          <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go()" />
+          <div class="row q-mx-sm q-my-lg">
+      <div>
+        <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
+          v-if="mode === 'add'" />
+      </div>
+      <div>
+        <q-btn label="Update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
+          :disable="formSubmitting" v-if="mode === 'edit'"></q-btn>
+      </div>
+      <div>
+        <q-btn unelevated label="Cancel" color="negative" @click="$router.go()" />
+      </div>
+
         </div>
       </q-form>
-    </div>
-  </div>
+   
 </template>
 import { useQuasar } from 'quasar'
 <script>
@@ -55,6 +56,8 @@ export default {
   data () {
     return {
       formData: {},
+      formSubmitting: false,
+      formError: false,
       categories: {
         options: [],
         loading: false,

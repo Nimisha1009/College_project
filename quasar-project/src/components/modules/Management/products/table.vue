@@ -1,11 +1,17 @@
 <template>
-    <q-table :rows="rows" :columns="columns">
+     <q-table :rows="rows" :columns="columns">
+    <template v-slot:top>
+      <div class="row items-center">
+        <div class="text-h5 q-ma-sm">categories</div>
+        <q-btn label="Add" color="green" rounded class="q-ma-sm" to="./add" v-if="!$route.params.mode"></q-btn>
+      </div>
+    </template>
     <template v-slot:body-cell-actionControl="props">
-     <q-td>
-       <q-btn icon="edit" :to="'./edit/' + props.row.id" unelevated color="amber" dense></q-btn>
-       <q-btn icon="delete" @click="deleteData(props.row.id)" unelevated color="red" dense></q-btn>
-     </q-td>
-
+      <q-td>
+        <q-btn icon="visibility" :to="'./detail/' + props.row.id" unelevated color="green" dense></q-btn>
+        <q-btn icon="edit" :to="'./edit/' + props.row.id" unelevated color="amber" dense></q-btn>
+        <q-btn icon="delete" @click="deleteData(props.row.id)" unelevated color="red" dense></q-btn>
+      </q-td>
    </template>>
 </q-table>
     </template>

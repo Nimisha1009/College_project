@@ -8,6 +8,7 @@
     </template>
     <template v-slot:body-cell-actionControl="props">
       <q-td>
+        <q-btn icon="visibility" :to="'./detail/' + props.row.id" unelevated color="green" dense></q-btn>
         <q-btn icon="edit" :to="'./edit/' + props.row.id" unelevated color="amber" dense></q-btn>
         <q-btn icon="delete" @click="deleteData(props.row.id)" unelevated color="red" dense></q-btn>
       </q-td>
@@ -26,6 +27,7 @@
        { label: 'ID', field: 'id', name: 'id', align: 'left' },
        { label: 'Category name', field: 'name', name: 'name', align: 'left' },
        { label: 'category Description', field: '', name: '', align: 'left' },
+       { label: 'product status', field: 'product status', name:'' , align:''},
        { label: 'Image', field: '', name: 'actionControl' },
      ]
            }
