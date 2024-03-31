@@ -29,7 +29,7 @@
           </div>
      <div  ref="div" class="row q-mx-sm q-my-lg">
       <div>
-        <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
+        <q-btn label="Submit"   color="primary" @click="submit" unelevated :loading="formSubmitting"
           v-if="mode === 'add'" />
       </div>
       <div>
@@ -77,8 +77,10 @@ export default {
         this.formSubmitting = false
         this.formData = {}
         this.$mitt.emit('module-data-changed:categories')
+       this.$router.go(-1)
         this.$q.dialog({
           message: 'Data Submitted Successfully'
+          
         })
         this.$refs.name_input.$el.focus()
       } catch (err) {

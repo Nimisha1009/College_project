@@ -131,6 +131,7 @@
          this.formSubmitting = false
          this.formData = {}
          this.$mitt.emit('module-data-changed:sellers')
+         this.$router.go(-1)
          this.$q.dialog({
            message: 'seller Added Successfully'
          });

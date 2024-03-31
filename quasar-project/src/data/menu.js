@@ -2,10 +2,14 @@
 export default {
   seller: [
     {
+      label: 'Dashboard', url: '/seller/Dashboard', icon: '',
+    },
+
+    {
       label: 'Listings', url: '', icon: '', subMenu: [
-        { label: 'Products', url: '/seller/products', icon: '' },
-        { label: 'My Products', url: '', icon: '' },
-        { label: 'Requested Products', url: '', icon: '' },
+        { label: 'Products', url: '/seller/ProductPage', icon: '' },
+        { label: 'My Products', url: '/seller/MyProduct', icon: '' },
+        { label: 'Requested Products', url: '/seller/RequestProduct', icon: '' },
       ]
     },
     {
@@ -13,13 +17,13 @@ export default {
         { label: 'Inventory Management', icon: '', url: '/seller/InventoryManagement' }
       ]
     },
-
+  
     {
       label: 'Orders', url: '', icon: '', subMenu: [
-        { label: 'Sells Order', url: '/seller/SellsOrder', icon: '' },
-        { label: 'Return Order', url: '/seller/ReturnOrders', icon: '' },
-        { label: 'Cancellation Order', url: '/seller/CancellationOrder', icon: '' },
-        { label: 'Track Request Approval', url: '/seller/TrackRequestApproval', icon: '' }
+        { label: 'Sells Order', url: '/seller/SellOrder', icon: '' },
+        { label: 'Return Order', url: '/seller/ReturnOrder', icon: '' },
+        { label: 'Cancellation Order', url: '/seller/CancelletionOrder', icon: '' },
+        { label: 'Track Request Approval', url: '/seller/TrackApprovalRequest', icon: '' }
       ]
     },
 
@@ -29,6 +33,10 @@ export default {
         { label: 'Transaction', url: '/seller/Transaction', icon: '' },
       ]
     },
+    {
+      label: 'Help', url: '/seller/Help', icon: '',
+    },
+
   ],
   management: [
     {
@@ -51,7 +59,7 @@ export default {
 
 
     {
-      label: ' Customers', url: '/management/ViewCustomer', icon: 'fas fa-user'
+      label: ' Customers', url: '/management/ViewCustomer', icon: ''
     },
     {
       label: 'View Orders', url: '/management/ViewOrder', icon: ''

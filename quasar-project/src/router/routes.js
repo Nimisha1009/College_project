@@ -73,28 +73,12 @@ const routes = [
         component: () => import('pages/seller/DashboardPage.vue'),
       },
       {
-        path: 'products',
+        path: 'ProductPage',
         component: () => import('pages/seller/ProductPage.vue'),
       },
-      {
-        path: 'my-products',
-        component: () => import('pages/seller/ProductPage.vue'),
-        children: [
-          {
-            path: 'add',
-            component: () => import('components/modules/products/AddSellerProduct.vue')
-          }
-        ]
-      },
-
-      {
-        path: '/Categories',
-        component: () => import('pages/seller/CategoriesPage.vue'),
-      },
-      {
-        path: 'products/request',
-        component: () => import('layouts/seller/MainLayout.vue'),
-      },
+    
+     
+    
       {
         path: 'InventoryManagement',
         component: () => import('pages/seller/InventoryManagement.vue'),
@@ -102,6 +86,18 @@ const routes = [
       {
         path: 'SellOrder',
         component: () => import('pages/seller/SellOrder.vue'),
+      },
+      {
+        path: 'ReturnOrder',
+        component: () => import('pages/seller/ReturnOrder.vue'),
+      },
+      {
+        path: 'RequestProduct',
+        component: () => import('pages/seller/RequestProduct.vue'),
+      },
+      {
+        path: 'CancelletionOrder',
+        component: () => import('pages/seller/CancelletionOrder.vue'),
       },
       {
         path: 'PaymentOverview',
@@ -112,8 +108,8 @@ const routes = [
         component: () => import('pages/seller/Invoices.vue'),
       },
       {
-        path: 'Settlement',
-        component: () => import('pages/seller/Settlement.vue'),
+        path: 'TrackApprovalRequest',
+        component: () => import('pages/seller/TrackApprovalRequest.vue'),
       },
       {
         path: 'Help',
@@ -123,22 +119,7 @@ const routes = [
         path: 'Transaction',
         component: () => import('pages/seller/Transaction.vue'),
       },
-      {
-        path: 'products/:mode?',
-        component: () => import('pages/seller/ProductPage.vue'),
-        props: true,
-        children: [
-          { path: '', component: () => import('components/modules/products/form.vue'), props: true }
-        ]
-      },
-      {
-        path: 'Categories/:mode?',
-        component: () => import('pages/CategoriesPage.vue'),
-        props: true,
-        children: [
-          { path: '', component: () => import('components/modules/Categories/form.vue'), props: true }
-        ]
-      },
+    
 
 
 

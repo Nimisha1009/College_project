@@ -1,5 +1,7 @@
 <template>
-
-</template>
-<script>
-</script>
+   req
+    <q-card>  <router-view /></q-card>
+    
+    </template>
+    <script>
+    </script>

@@ -1,7 +1,8 @@
 <template>
 
   <div class="row">
-    <TopMenu :menu="menu.seller"></TopMenu>
+    <TopMenu :menu="menu.seller">]
+    </TopMenu>
   </div>
 
 
