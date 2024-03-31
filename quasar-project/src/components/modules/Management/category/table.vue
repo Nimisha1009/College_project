@@ -26,9 +26,10 @@
                columns: [
        { label: 'ID', field: 'id', name: 'id', align: 'left' },
        { label: 'Category name', field: 'name', name: 'name', align: 'left' },
-       { label: 'category Description', field: '', name: '', align: 'left' },
-       { label: 'product status', field: 'product status', name:'' , align:''},
-       { label: 'Image', field: '', name: 'actionControl' },
+       { label: ' Description', field: 'Description', name: '', align: 'left' },
+       { label: 'Status', field: 'status', name:'' , align:''},
+       { label: 'Parent_category_id', field:'parent_category_id',  name:'' , align:''},
+       { label: 'Image', field: 'Image', name: 'actionControl' },
      ]
            }
        },

@@ -17,6 +17,11 @@
           <q-input outlined v-model="formData.price" />
 
         </div>
+        <div class="column q-ma-sm">
+          <label> Date</label>
+          <q-input type="date" outlined v-model="formData.price" />
+
+        </div>
 
         <div class="column q-ma-sm">
           <label>Description</label>
@@ -77,7 +82,7 @@ export default {
   methods: {
     async filtercategories (inputValue, doneFn, abortFn) {
       this.categories.searchText = inputValue
-      await this.fetchcategories()
+      await this.fetchcategoriesOptions()
       doneFn()
       console.log(inputValue)
     },

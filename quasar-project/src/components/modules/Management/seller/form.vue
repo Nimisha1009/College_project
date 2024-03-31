@@ -13,17 +13,29 @@
  </div>
  <div class="column q-ma-sm">
      <label class="q-my-xs text-grey-8 text-bold">Mobile number</label>
-     <q-input outlined lv-model="formData.Mobile_number" :options="contactNumberOptions" ></q-input>
+     <q-input outlined v-model="formData.Mobile_number"  ></q-input>
  </div>
  <div class="column q-ma-sm">
      <label class="q-my-xs text-grey-8 text-bold">Gender</label>
-     <q-select outlined v-model="formData.gender" :options="genderOptions" map-options
+     <q-select outlined v-model="formData.gender" :options="gender.options" map-options
      option-label="text" emit-value option-value="value" :loading="gender.loading" :error-message="gender.error"
      :error="!!gender.error"></q-select>
      </div>
      <div class="column q-ma-sm">
      <label class="q-my-xs text-grey-8 text-bold">Address</label>
-     <q-input outlined  v-model="formData.address"></q-input>
+     <q-input outlined  v-model="formData.Address"></q-input>
+ </div>
+ <div class="column q-ma-sm">
+     <label class="q-my-xs text-grey-8 text-bold">State</label>
+     <q-input outlined  v-model="formData.state"></q-input>
+ </div>
+ <div class="column q-ma-sm">
+     <label class="q-my-xs text-grey-8 text-bold">City</label>
+     <q-input outlined  v-model="formData.city"></q-input>
+ </div>
+ <div class="column q-ma-sm">
+     <label class="q-my-xs text-grey-8 text-bold">Pincode</label>
+     <q-input outlined  v-model="formData.pincode"></q-input>
  </div>
  <div class="column q-ma-sm">
      <label class="q-my-xs text-grey-8 text-bold">Adhaar number</label>
@@ -42,7 +54,7 @@
      
      <div class="column q-ma-sm ">
      <q-uploader url="http://localhost:8055/items/categories" label="Category Image" color="blue" square flat bordered
-       style="max-width: 300px" v-model="formData.Image" />
+       style="max-width: 300px" v-model="formData.image" />
    </div>
    <div class="column q-ma-sm ">
    <q-select label="status" class="column q-ma-sm " outlined emit-value

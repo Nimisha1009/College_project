@@ -2,7 +2,7 @@
      <q-table :rows="rows" :columns="columns">
     <template v-slot:top>
       <div class="row items-center">
-        <div class="text-h5 q-ma-sm">categories</div>
+        <div class="text-h5 q-ma-sm">products</div>
         <q-btn label="Add" color="green" rounded class="q-ma-sm" to="./add" v-if="!$route.params.mode"></q-btn>
       </div>
     </template>
@@ -24,11 +24,12 @@
                 columns: [
         { label: 'ID', field: 'id', name: 'id', align: 'left' },
         { label: 'Product name', field: 'name', name: 'name', align: 'left' },
-        { label: 'category', field: 'categories_id', name: 'categories_id', align:'' },
+        { label: 'Category', field: 'categories_id', name: 'categories_id', align:'' },
         { label: 'Price', field: 'price', name: 'price', align:'' },
+        { label: 'Date', field: 'date', name: 'date', align:'' },
         { label: 'Description', field: 'description', name:'description',  align:'' },
-        { label: 'product Image', field: 'image', name:'image',  align:'' },
-        { label: 'product status', field: 'status', name:'status' , align:''},
+        { label: 'Image', field: 'image', name:'image',  align:'' },
+        { label: 'Status', field: 'status', name:'status' , align:''},
         { label: 'Action', field: '', name: 'actionControl' },
       ]
             }
