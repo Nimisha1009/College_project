@@ -1,5 +1,4 @@
 <template>
-    
 <q-footer elevated class="bg-black">
      <q-btn  color="white"  to="/management/auth/login">Admin</q-btn>
     </q-footer>

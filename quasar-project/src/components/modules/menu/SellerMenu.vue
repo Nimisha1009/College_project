@@ -1,20 +1,20 @@
 <template>
 
-  <div class="row">
-    <TopMenu :menu="menu.seller">]
-    </TopMenu>
-  </div>
+
+  <SideMenu :menu="menu.seller">
+  </SideMenu>
+
 
 
 
 </template>
 
 <script>
-import TopMenu from 'components/commons/TopMenu.vue'
+import SideMenu from 'components/commons/SideMenu.vue'
 import menu from 'src/data/menu.js'
 console.log(menu)
 export default {
-  components: { TopMenu },
+  components: { SideMenu },
   data () {
     return {
       menu
