@@ -2,22 +2,8 @@
 export default {
   seller: [
     {
-      label: 'Dashboard', url: '/seller/Dashboard', icon: '',
+      label: 'Dashboard', url: '/seller/Dashboard', icon: 'home',
     },
-
-    {
-      label: 'Listings', url: '', icon: '', subMenu: [
-        { label: 'Products', url: '/seller/ProductPage', icon: '' },
-        { label: 'My Products', url: '/seller/MyProduct', icon: '' },
-        { label: 'Requested Products', url: '/seller/RequestProduct', icon: '' },
-      ]
-    },
-    {
-      label: 'Inventory', url: '', icon: '', subMenu: [
-        { label: 'Inventory Management', icon: '', url: '/seller/InventoryManagement' }
-      ]
-    },
-  
     {
       label: 'Orders', url: '', icon: '', subMenu: [
         { label: 'Sells Order', url: '/seller/SellOrder', icon: '' },
@@ -26,21 +12,31 @@ export default {
         { label: 'Track Request Approval', url: '/seller/TrackApprovalRequest', icon: '' }
       ]
     },
-
+    { 
+      label: 'Products', url: '/seller/ProductPage', icon: 'filter_1'
+     },
+     { 
+      label: 'Requested Products', url: '/seller/RequestProduct', icon: ''
+     },
+   {
+      label: 'Inventory', url: '/seller/InventoryManagement', icon: 'inventory'
+   },
     {
-      label: 'Payments', url: '', icon: '', subMenu: [
-        { label: 'Payment Overview', url: '/seller/PaymentOverview', icon: '', },
-        { label: 'Transaction', url: '/seller/Transaction', icon: '' },
-      ]
+      label: 'Pricing', url: '/seller/Pricing', icon: 'attach_money'
+    },
+  
+   
+    {
+      label: 'Payments', url: '/seller/PaymentOverview', icon: 'payment'
     },
     {
-      label: 'Help', url: '/seller/Help', icon: '',
+      label: 'Help', url: '/seller/Help', icon: 'help',
     },
 
   ],
   management: [
     {
-      label: 'Dashboard', url: '/management/Dashboard', icon: ''
+      label: 'Dashboard', url: '/management/Dashboard', icon: 'home'
     },
 
     {
@@ -59,16 +55,16 @@ export default {
 
 
     {
-      label: ' Customers', url: '/management/ViewCustomer', icon: ''
+      label: ' Customers', url: '/management/ViewCustomer', icon: 'people'
     },
     {
       label: 'View Orders', url: '/management/ViewOrder', icon: ''
     },
     {
-      label: 'View Payment', url: '/management/ViewPayment', icon: ''
+      label: 'View Payment', url: '/management/ViewPayment', icon: 'payment'
     },
     {
-      label: 'Users', url: '/management/ViewUsers', icon: ''
+      label: 'Users', url: '/management/ViewUsers', icon: 'people'
 
 
 

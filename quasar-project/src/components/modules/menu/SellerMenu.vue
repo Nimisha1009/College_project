@@ -1,14 +1,7 @@
 <template>
-
-
-  <SideMenu :menu="menu.seller">
+ <SideMenu :menu="menu.seller">
   </SideMenu>
-
-
-
-
 </template>
-
 <script>
 import SideMenu from 'components/commons/SideMenu.vue'
 import menu from 'src/data/menu.js'

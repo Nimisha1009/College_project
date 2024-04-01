@@ -2,7 +2,7 @@
   <q-layout view="hHh Lpr lFf">
     <q-header elevated class="bg-white">
       <div class="row q-pa-md " >
-        <div style="width:80px">
+        <div  style="width:80px">
           <!-- <q-img></q-img> -->
         </div>
         <div class="col">

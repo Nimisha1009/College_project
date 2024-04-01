@@ -84,6 +84,10 @@ const routes = [
         component: () => import('pages/seller/InventoryManagement.vue'),
       },
       {
+        path: 'Pricing',
+        component: () => import('pages/seller/Pricing.vue'),
+      },
+      {
         path: 'SellOrder',
         component: () => import('pages/seller/SellOrder.vue'),
       },
@@ -91,11 +95,17 @@ const routes = [
         path: 'ReturnOrder',
         component: () => import('pages/seller/ReturnOrder.vue'),
       },
+    
       {
-        path: 'RequestProduct',
-        component: () => import('pages/seller/RequestProduct.vue'),
+        path: 'RequestProduct:mode?:id?',
+        component: () => import('pages/seller/RequestProductPage.vue'),
+        props: true,
+        children: [
+          { path: '',
+           component: () => import('components/modules/Seller/RequestProduct/form.vue'), props:true }
+        ]
       },
-      {
+     {
         path: 'CancelletionOrder',
         component: () => import('pages/seller/CancelletionOrder.vue'),
       },
