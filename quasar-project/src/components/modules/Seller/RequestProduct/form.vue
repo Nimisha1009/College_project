@@ -25,7 +25,7 @@
 
         </div>
         <div class="column q-ma-md">
-          <q-uploader url="http://localhost:8055/items/products" label="Upload Product Image" color="blue" square flat
+          <q-uploader url="http://localhost:8055/items/products_request" label="Upload Product Image" color="blue" square flat
             bordered style="max-width: 250px" v-model="formData.image" />
         </div>
          <q-select label="status" class="q-pa-md" outlined emit-value
@@ -91,30 +91,7 @@ export default {
       }
 
     },
-    async updateForm () {
-      let valid = await this.$refs.form.validate()
-      if (!valid) {
-        return
-      }
-      this.formSubmitting = true
-      try {
-        let httpClient = await this.$api.patch('items/products_request/' + this.formData.id, this.formData)
-        this.formSubmitting = false
-        this.formData = {}
-        this.$mitt.emit('module-data-changed:products_request')
-        this.$q.dialog({
-          message: 'Data Update Successfully'
-        })
-
-        this.$refs.name_input.$el.focus()
-      } catch (err) {
-        this.formSubmitting = false
-        this.$q.dialog({
-          message: 'Data Updation Failed'
-        })
-      }
-    },
-    async fetchData () {
+     async fetchData () {
       let httpClient = await this.$api.get('items/products_request/' + this.id);
       this.formData = httpClient.data.data;
     }
