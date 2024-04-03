@@ -19,7 +19,7 @@
         </div>
         <div class="column q-ma-sm">
           <label> Date</label>
-          <q-input type="date" outlined v-model="formData.price" />
+          <q-input type="date" outlined v-model="formData.date" />
 
         </div>
 

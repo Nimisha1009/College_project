@@ -1,11 +1,11 @@
 <template>
-<q-form ref="form" class="q-pa-sm" :class="{ 'bg-amber-1': mode === 'edit' }">
+    <q-form ref="form" class="q-pa-sm" :class="{ 'bg-amber-1': mode === 'edit' }">
     <div clsss="row">
-      <div class="text-h5 text-center q-my-lg col-12">Product</div>
+      <div class="text-h5 text-center q-my-lg col-12">Add product</div>
     </div>
     <div class="column q-ma-sm">
       <label class="q-my-xs text-grey-8 text-bold">Product name</label>
-      <q-input ref="name_input" outlined v-model="formData.name" disable="formSubmitting || mode === 'edit'" />
+      <q-input ref="name_input" outlined v-model="formData.name" :disable="formSubmitting || mode === 'edit'" />
     </div>
         <div class="column q-ma-sm">
           <q-select outlined label="categories"  use-input @filter="filtercategories" :options="categories.options" option-value="id" option-label="name"
@@ -39,7 +39,7 @@
           <div ref="div"  class="row q-mx-sm q-my-lg">
       <div >
         <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
-        v-if="mode === 'add'" />
+        :disable="formSubmitting || mode === 'edit'" />
       </div>
       <div>
         <q-btn label="Update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
@@ -47,15 +47,11 @@
       </div>
       <div>
         <q-btn unelevated label="Cancel" color="negative" @click="$router.go()" />
-      </div>
-
-        </div>
+      </div> </div>
       </q-form>
-   
-</template>
-import { useQuasar } from 'quasar'
-<script>
-export default {
+   </template>
+ <script>
+ export default {
   name: 'RequestForm',
   props: ['mode', 'id'],
   data () {
@@ -135,7 +131,7 @@ export default {
         this.formSubmitting = false
         this.formData = {}
         this.$mitt.emit('module-data-changed:products_request')
-        this.$router.go(-1)
+        this.$router.go()
         this.$q.dialog({
           title: 'Successfull',
           message: 'Data Submitted'
@@ -161,7 +157,7 @@ export default {
         let httpClient = await this.$api.patch('items/products_request/' + this.formData.id, this.formData)
         this.formSubmitting = false
         this.formData = {}
-        this.$mitt.emit('module-data-changed:products')
+        this.$mitt.emit('module-data-changed:products_request')
         this.$q.dialog({
           message: 'Data Update Successfully'
         })
@@ -187,4 +183,3 @@ export default {
   }
 }
 </script>
-

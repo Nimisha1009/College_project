@@ -24,7 +24,32 @@ export default {
       ]
     }
   },
-}
+  methods: {
+            async fetchData(){
+             let httpClient = await this.$api.get('/items/sellers_products_pricing')
+             this.rows = httpClient.data.data
+            },
+            async deleteData (id) {
+      this.$q.dialog({
+        title: 'Deleting Data',
+        message: 'Are you sure?',
+        cancel: true,
+        persistent: true
+      }).onOk(async () => {
+        let httpClient = await this.$api.delete('/items/sellers_products_pricing/' + id)
+        this.fetchData()
+      })
+    }
+        },
+        created(){
+            this.$mitt.on('module-data-changed:sellers_products_pricing', this.fetchData)
+            this.fetchData()
+        }
+    }
 </script>
+     
+     
+
+
    
    

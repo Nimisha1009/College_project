@@ -9,13 +9,7 @@
       </q-card>
       <CategoryTable class="col q-ma-md" v-if="!mode" />
     </div>
-
-
-
-  </q-page>
-
-
-
+ </q-page>
 </template>
 <script>
 import CategoryForm from 'components/modules/Management/category/form.vue'
