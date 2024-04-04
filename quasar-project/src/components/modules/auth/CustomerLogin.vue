@@ -9,7 +9,7 @@
         <q-input label="password" outlined v-model="auth.password"></q-input>
       </div>
       <div class="full-width q-my-md column q-gutter-sm">
-        <q-checkbox class="text-grey-8" dense  label="Remember me"/>
+        <q-checkbox class="text-grey-8" dense label="Remember me" />
         <div class="">
           <q-btn :label="authSuccess ? 'Success' : 'Login'" style="width:100%" dense
             :color="authSuccess ? 'green' : 'primary'" @click="login" :disabled="authInProgress || authSuccess"
@@ -24,13 +24,13 @@
 
       <div class="column items-center q-my-lg">
         <div>
-          
+
           <q-btn flat class="text-h5 text-center" color="teal" size="lg" to="/auth/signup">Create Account</q-btn>
         </div>
 
 
-        <span class="text-grey-8 ">By Continuing,you agree to Kids Store's Condition of Use  Privacy and Policy</span>
-       
+        <span class="text-grey-8 ">By Continuing,you agree to Kids Store's Condition of Use Privacy and Policy</span>
+
       </div>
 
     </div>
@@ -40,7 +40,9 @@
 export default {
   data () {
     return {
-      auth: {},
+      auth: {
+        interface: 'customer'
+      },
       authInProgress: false,
       authSuccess: false
     }

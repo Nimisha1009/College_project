@@ -46,7 +46,7 @@
 export default {
   data () {
     return {
-      auth: {},
+      auth: { interface: 'seller' },
       authInProgress: false,
       authSuccess: false
     }
