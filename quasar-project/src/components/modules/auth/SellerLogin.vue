@@ -55,22 +55,11 @@ export default {
     async login () {
       this.$api.defaults.headers.common['Authorization'] = null;
       this.authInProgress = true
+      try{
       let httpRequest
-      try {
+      
         httpRequest = await this.$api.post('/auth/login', this.auth)
-      } catch (err) {
-        console.log(err)
-        if (err.response.status === 401) {
-          this.$q.dialog({
-            message: err?.response?.data?.errors?.[0]?.message
-          })
-        }
-        this.authInProgress = false
-        return
-
-      }
-
-      this.authSuccess = true
+       this.authSuccess = true
       this.authInProgress = false
       let access_token = httpRequest.data.data.access_token
       this.$api.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
@@ -80,10 +69,11 @@ export default {
       setTimeout(() => {
         this.$router.replace('/seller/dashboard')
       }, 1000)
-
-
-
-    },
+    } catch (err) {
+        alert('Some Error Occurred')
+        this.authInProgress = false
+      }
+ },
     ForgotPassword () {
       console.log("Forgot Password clicked");
     },
