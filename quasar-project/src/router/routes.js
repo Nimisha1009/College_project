@@ -93,12 +93,12 @@ const routes = [
         component: () => import('pages/seller/InventoryManagement.vue'),
       },
       {
-        path: 'Pricing',
+        path: 'Pricing/:mode?/:id?',
         component: () => import('pages/seller/PricingPage.vue'),
-         
+        props: true,
         children: [
           { path: '',
-           component: () => import('components/modules/Seller/Pricing/form.vue'),  }
+           component: () => import('components/modules/Seller/Pricing/form.vue'),    props: true  }
         ]
       },
       {

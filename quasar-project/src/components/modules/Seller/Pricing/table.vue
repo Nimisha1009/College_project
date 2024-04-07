@@ -1,6 +1,11 @@
 <template>
   <q-table :rows="rows" :columns="columns">
-
+    <template v-slot:top>
+      <div class="row items-center">
+        <div class="text-h5 q-ma-sm">products pricing</div>
+        <q-btn label="Add" color="green" rounded class="q-ma-sm" to="./add" v-if="!$route.params.mode"></q-btn>
+      </div>
+      </template>
     <template v-slot:body-cell-actionControl="props">
       <q-td>
         <q-btn icon="edit" :to="'./edit/' + props.row.id" unelevated color="amber" dense></q-btn>

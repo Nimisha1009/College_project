@@ -1,42 +1,92 @@
 <template>
   <q-form ref="form">
-   <div class="row">
-    <div class="col-5 q-pa-md" >
-      <q-card >
-        <q-input  type="date" label="Effective-from-date" v-model="formData.from"></q-input>
-      </q-card>
+   <div class=" row col-5 q-pa-md" >
+      
+        <q-input type="date" outlined label="From" v-model="formData.from" :rules="[required]" />
+        <!-- <DateTime v-model="formData.to" range /> -->
+        {{ formData.to }}
+        <q-input mask="##-##-####" outlined label=" To" v-model="toDateDisplay" :rules="[required, validateTo]"
+          :disable="!formData.from">
+          <template v-slot:append>
+            <q-icon name="calendar_month">
+              <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+                <q-date v-model="formData.to" mask="YYYY-MM-DD" :options="validateDay">
+                  <div class="row items-center justify-end">
+                    <q-btn v-close-popup label="Close" color="primary" flat />
+                  </div>
+                </q-date>
+              </q-popup-proxy>
+            </q-icon>
+          </template>
+        </q-input>
+        <div>
+        <q-select outlined label="Status" emit-value
+          :options="[{ label: 'Active', value: 'active' }, { label: 'In-Active', value: 'in_active' }]"
+          v-model="formData.status"></q-select>
+        </div>
      </div>
-   <div class="col-5 q-pa-md">
-    <q-card >
-    <q-input type="date" label="Effective-to-date" v-model="formData.to"></q-input>
-   </q-card>
-
-    </div>
+   <div ref="div"  class="row q-mx-sm q-my-lg">
+    
+     <q-btn class="q-my-lg"  label="Submit" color="primary" @click="submit"/>
    
- </div>
- <div ref="div"  class="row q-mx-sm q-my-lg">
-      <div >
-        <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
-        :disable="formSubmitting || mode === 'edit'" />
-      </div>
-      </div>
+      <q-btn class="q-my-lg" label="Cancel" color="negative" @click="$router.go(-1)" />
 
- </q-form>
+      </div>
+         </q-form>
+         </template>
+         <script>
+       import moment from 'moment'
+       export default {
+          name: 'PricingForm',
+             props: ['mode', 'id'],
+                data () {
+                        return {
+                      date: { from: null, to: null },
+               formData: {},
+               formSubmitting: false,
+                formError: false,
+           }
+          },
+                computed: {
+                toDateDisplay: {
+                 set (value) {
+                   let dateArray = value.split('-')
+                   if (dateArray?.[0].length === 2 && dateArray?.[1].length === 2 && dateArray?.[2].length === 4) {
+                let dateMoment = moment(value, 'DD-MM-YYYY')
+               this.formData.to = dateMoment.format('YYYY-MM-DD')
+                    }
+                         },
+                get () {
+                 let dateMoment = moment(this.formData.to)
+                return dateMoment.format('DD-MM-YYYY')
+                        }
+                         }
+                         },
 
-</template>
-<script>
- export default {
-  name: 'PricingForm',
-  props: ['mode', 'id'],
-  data () {
-    return {
-      formData: {},
-      formSubmitting: false,
-      formError: false,
-    }
-  },
- methods:{
-    async submit() {
+                         methods: {
+    validateDay (date) {
+      let from = this.formData.from
+      let to = date
+      let fromDate = moment(from)
+      let toDate = moment(to)
+      let NumberOfDays = toDate.diff(fromDate, 'days') + 1
+
+      return leaveForDays > 0
+    },
+    async required (value) {
+      return !!value || 'Mandatory Field'
+    },
+    async validateTo () {
+      console.log(this.formData.to)
+      let from = this.formData.from
+      let to = this.formData.to
+      let fromDate = moment(from)
+      let toDate = moment(to)
+      let NumberOfDays = toDate.diff(fromDate, 'days') + 1
+
+      return NumberOfDays > 0 || 'Not Valid'
+    },
+   async submit() {
       let valid = await this.$refs.form.validate();
       if (!valid) {
         return

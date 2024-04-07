@@ -9,7 +9,7 @@
     </div>
         <div class="column q-ma-sm">
           <q-select outlined label="categories"  use-input @filter="filtercategories" :options="categories.options" option-value="id" option-label="name"
-            map-options emit-value v-model="formData.categories_id"></q-select>
+            map-options emit-value v-model="formData.category"></q-select>
         </div>
 
         <div class="column q-ma-sm">
@@ -37,17 +37,12 @@
           v-model="formData.status"></q-select>
 
           <div ref="div"  class="row q-mx-sm q-my-lg">
-      <div >
-        <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
+      <q-btn label="Submit" color="primary" @click="submit" unelevated :loading="formSubmitting"
         :disable="formSubmitting || mode === 'edit'" />
-      </div>
-      <div>
-        <q-btn label="Update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
+       <q-btn label="Update" color="amber" unelevated @click="updateForm" :loading="formSubmitting"
           :disable="formSubmitting" v-if="mode === 'edit'"></q-btn>
-      </div>
-      <div>
-        <q-btn unelevated label="Cancel" color="negative" @click="$router.go()" />
-      </div> </div>
+      <q-btn unelevated label="Cancel" color="negative" @click="$router.go()" />
+         </div>
       </q-form>
    </template>
  <script>
@@ -110,43 +105,39 @@
 
         } else {
           this.categories.error = 'Failed to load options'
-
-        }
-
-      }
+            }  }
       if (!!!this.categories.error || (!!this.categories.error && this.categories.loadingAttempt > 5)) {
         this.categories.loading = false
       }
-
-
-    },
-    async submit() {
-      let valid = await this.$refs.form.validate();
+ },
+ async submit() {
+      let valid = await this.$refs.form.validate()
       if (!valid) {
         return
       }
-      this.formSubmitting = true;
+      this.formSubmitting = true
       try {
-     let httpClient = await this.$api.post('/items/products_request', this.formData)
+        let httpClient = await this.$api.post('/items/products_request', this.formData)
         this.formSubmitting = false
         this.formData = {}
         this.$mitt.emit('module-data-changed:products_request')
-        this.$router.go()
+
         this.$q.dialog({
           title: 'Successfull',
           message: 'Data Submitted'
-        });
-        this.$refs.name_input.$el.focus()
+        }).onOk(() => {
+          this.$router.go(-1)
+
+        })
 
       } catch (err) {
-        console.log(err)
         this.formSubmitting = false
         this.$q.dialog({
-          message: 'Form Submission failed'
+          message: 'Data Submission Failed'
         })
       }
-
     },
+   
     async updateForm () {
       let valid = await this.$refs.form.validate()
       if (!valid) {
