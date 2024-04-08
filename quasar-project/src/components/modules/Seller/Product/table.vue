@@ -7,18 +7,20 @@
     name:'SellerProducttable',
     data () {
     return {
-      rows: [],
+      products: [],
+      
       columns: [
         { label: 'ID', field: 'id', name: 'id', align: 'left' },
-         { label: 'From', field: 'from', name: 'from', align: 'left' },
-         { label: 'Status', field: 'status', name: '', align: '' },
-        { label: 'To', field: 'to', name: 'to', align: 'left' },
-        { label: 'Action', field: '', name: 'actionControl' },
+         { label: 'Product_id', field: row=> row.products_id.name, name: '', align: '' },
+         { label: 'seller_id', field: row=> row.sellers_id.name, name: '', align: '' },
       ]
     }
   },
   methods: {
             async fetchData(){
+              let params = {
+                fields: []
+              }
              let httpClient = await this.$api.get('/items/sellers_products')
              this.rows = httpClient.data.data
             },
