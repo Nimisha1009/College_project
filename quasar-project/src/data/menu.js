@@ -13,7 +13,7 @@ export default {
       ]
     },
     { 
-      label: 'Products', url: '/seller/ProductPage', icon: 'filter_1'
+      label: ' My Products', url: '/seller/ProductPage', icon: 'filter_1'
      },
      { 
       label: 'Requested Products', url: '/seller/RequestProduct', icon: ''

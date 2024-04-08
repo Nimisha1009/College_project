@@ -135,12 +135,6 @@ const routes = [
         path: 'Transaction',
         component: () => import('pages/seller/Transaction.vue'),
       },
-    
-
-
-
-
-
     ]
   },
   {

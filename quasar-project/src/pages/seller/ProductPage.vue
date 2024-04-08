@@ -1,8 +1,17 @@
 <template>
-page
-  <q-card>  <router-view /></q-card>
+<q-page>
+ <div class="row" >
+  <div class="col">
+    <SellerProducttable />
+  </div>
+ </div>
+</q-page>
   
   </template>
   <script>
+  import SellerProducttable from 'components/modules/Seller/Product/table.vue';
+  export default{
+    components: {SellerProducttable}
+  }
   </script>
  
