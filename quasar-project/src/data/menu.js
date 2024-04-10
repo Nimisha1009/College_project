@@ -12,20 +12,20 @@ export default {
         { label: 'Track Request Approval', url: '/seller/TrackApprovalRequest', icon: '' }
       ]
     },
-    { 
-      label: 'Products', url: '/seller/ProductPage', icon: 'filter_1'
-     },
-     { 
+    {
+      label: 'My Products', url: '/seller/ProductPage', icon: 'filter_1'
+    },
+    {
       label: 'Requested Products', url: '/seller/RequestProduct', icon: ''
-     },
-   {
+    },
+    {
       label: 'Inventory', url: '/seller/InventoryManagement', icon: 'inventory'
-   },
+    },
     {
       label: 'Pricing', url: '/seller/Pricing', icon: 'attach_money'
     },
-  
-   
+
+
     {
       label: 'Payments', url: '/seller/PaymentOverview', icon: 'payment'
     },
