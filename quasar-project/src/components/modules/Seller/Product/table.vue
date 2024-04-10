@@ -8,20 +8,14 @@
     data () {
     return {
       products: [],
-      
-      columns: [
-        { label: 'ID', field: 'id', name: 'id', align: 'left' },
-         { label: 'Product_id', field: row=> row.products_id.name, name: '', align: '' },
-         { label: 'seller_id', field: row=> row.sellers_id.name, name: '', align: '' },
-      ]
-    }
+       }
   },
   methods: {
             async fetchData(){
               let params = {
-                fields: []
+                fields: ['*','seller_id.*']
               }
-             let httpClient = await this.$api.get('/items/sellers_products')
+             let httpClient = await this.$api.get('/items/sellers_products', {params})
              this.rows = httpClient.data.data
             },
             async deleteData (id) {
