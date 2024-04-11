@@ -77,7 +77,7 @@ export default {
         this.formSubmitting = false
         this.formData = {}
         this.$mitt.emit('module-data-changed:categories')
-       this.$router.go(-1)
+       this.$router.go()
         this.$q.dialog({
           message: 'Data Submitted Successfully'
           
