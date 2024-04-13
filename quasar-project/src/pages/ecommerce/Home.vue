@@ -1,7 +1,12 @@
 <template>
-<card>
+<q-page class="row">
+    <div class="col-3 bg-grey-2">
+     </div>
+
+   <div class="col-9">
     <ProductCard></ProductCard>
-</card>
+  </div>
+</q-page>
 </template>
 <script>
 import ProductCard from 'src/components/Card/ProductCard.vue';

@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="hHh Lpr lFf">
-    <q-header elevated class="bg-white">
+  <q-layout view="hHh Lpr lff">
+    <q-header class="bg-white">
       <div class="row q-pa-md " >
         <div  style="width:80px">
           <!-- <q-img></q-img> -->
@@ -22,15 +22,14 @@
         <q-btn class="q-mr-xs"  to="/seller/auth/login" label="Become a seller" flat color="black"></q-btn>
       </div>
       <q-navbar><NavbarEcom></NavbarEcom></q-navbar>
-     <!-- <q-carousel><Slider1></Slider1></q-carousel>-->
+   
     </q-header>
-    <q-footer>
-      <EcommerceFooter></EcommerceFooter>
-    </q-footer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
+    
+      <EcommerceFooter></EcommerceFooter>
+   
   </q-layout>
 </template>
 
@@ -42,15 +41,26 @@ import NavbarEcom from 'components/Navbar/NavbarEcom.vue'
 
 export default {
   components: { CustomerAuthBtn, ProfileButton,  EcommerceFooter, NavbarEcom, },
-  data () {
-    return {
-      leftDrawerOpen: false
-    }
-  },
-  methods: {
-    toggleLeftDrawer () {
-      this.leftDrawerOpen = !this.leftDrawerOpen
-    }
-  }
+ 
 }
 </script>
+<style scoped>
+.q-layout {
+  min-height: 100vh;
+  /* Set the layout to fill the viewport height */
+}
+
+.q-page-container {
+  flex-grow: 1;
+  /* Allow the page container to grow to fill remaining space */
+}
+
+.EcommerceFooter{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Ensure the footer is above other content */
+}
+
+</style>
