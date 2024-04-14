@@ -3,7 +3,7 @@
    <div class="footer-container">
         <div class="row flat q-pa-md">
         <div class="row ">
-          <FooterMenu />
+        
         </div>
       </div>
         <div class="footer-row">
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import FooterMenu from 'components/modules/menu/FooterMenu.vue'
+
 
 export default{
 name:'EcommerceFooter',
-components: { FooterMenu },
+
 }
 </script>
 
